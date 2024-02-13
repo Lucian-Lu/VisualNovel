@@ -6,9 +6,14 @@ define stor = Character('Me', color="#8883f4")
 define ob = Character('Ob', color="#8b0000")
 define airis = Character('Airis', color="#ad2d89")
 define letter = Character('Letter', color="ffffff")
+define sariel = Character('Sariel', color="#704178")
+define reivi = Character('Reivi', color="#556b2f")
+
 
 image street = "bg/street.jpg"
 image tavern = "bg/tavern.jpg"
+image near_potion = "bg/near_potion.jpg"
+image potion_shop = "bg/potion_shop.jpg"
 
 # Например, сцену bg room можно вызвать файлом "bg room.png",
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
@@ -24,6 +29,8 @@ label start:
 
 label first_act:
     scene tavern
+
+
 
     main_char "It was a normal Sunday morning, I had the day off, so I was going to have breakfast and have a glass of beer."
     stor "Hey Airis, what's for breakfast today?"
@@ -71,6 +78,117 @@ label first_act:
     ob "Yes, I already visited Tia, she went to get Arisius."
     stor "Great, then, to Hanji?"
     ob "Not right away, we need to go to one shop and we can go to the commander-in-chief."
+    hide ob
+    with dissolve
+    menu:
+        "Go to the shop":
+            $ antidote = True
+            show ob at left
+            with dissolve
+            stor "Then, let's hurry up. We need to get this task done quickly."
+            ob "Yes, we just need to buy a couple of potions, it will be done quickly."
+            hide ob
+            with dissolve
+            main_char "It took literally 10 minutes to get to the shop, but due to the incredible July heat, I was already squeezed like lemon."
+            scene near_potion
+            show ob at left
+            with dissolve
+            stor "Oh, it’s so hot today, my brains are melting."
+            ob "Yes, especially in armor, I feel like I’m in a steam room."
+            ob "That's it, we've arrived, will you come with me or wait outside?"
+            hide ob
+            with dissolve
+            menu:
+                "Go to the shop with Ob.":
+                    scene potion_shop
+                    show sariel at left
+                    with dissolve
+                    show ob at right
+                    with dissolve
+                    sariel "Good morning, welcome to the alchemy shop \"Tasha's Cauldron\"."
+                    ob "Good morning, we need 3 poison resistance potions, Stor, do you need any potions?"
+                    main_char "I felt the pocket in which I usually carry gold, but it was empty."
+                    stor "Oh, apparently I left a bag of coins when I was packing before leaving. Apparently I'm without potions this time."
+                    ob "If you need some potions, then take them, I’ll pay, then you’ll return them."
+                    stor "Thanks, Ob, then I'll take..."
+                    menu:
+                        "Potion of Healing":
+                            $ potion = "Healing"
+                        "Potion of Invisibility":
+                            $ potion = "Invisibility"
+                    stor "Thanks, Ob, then I'll take Potion of [potion]"
+                    ob "Then that's all we'll take, how much will it cost us?"
+                    sariel "So, 3 Potions of poison resistance and a Potion of [potion] will cost 125 gold coins"
+                    ob "Yeah, a little expensive, but what can you do? We don't really have a choice, thank you very much, have a nice day."
+                    sariel "Thanks for purchase, come again. Have a good day."
+                    stor "Have a good day."
+                    hide ob
+                    with dissolve
+                    hide sariel
+                    with dissolve
+                    scene near_potion
+                    stor "Hey, Ob, when did you become so kind? He paid for me and even said thank you to the saleswoman."
+                    stor "Did something happen to you? Be honest, I'll help."
+                    ob "Very funny, let's go to Hanji already. Hold your potion."
+                "Stay outside.":
+                    ob "Okay, then I'll be quick."
+                    main_char "Ob went into the store, and I stayed near the shop."
+                    show reivi at left
+                    with dissolve
+                    reivi "Hey Stor!"
+                    main_char "The large figure of the half-orc Reivi appeared in front of me. You can't tell from him, but he is an extremely gifted student at the magic academy in Falo."
+                    main_char "Reivi is studying to be a battle mage and is doing extremely well. I was in the same group with him on a combat mission a couple of times."
+                    main_char "Although it was last year, he had amazing combat and magic skills. I think after a year he's gotten even better at it."
+                    reivi "How are you? Decided to go for a walk on your day off?"
+                    stor "Not really, work related matters."
+                    reivi "You're out of luck, of course, the archmage loads you with work even on Sunday."
+                    reivi "What kind of task is it, if not a secret?"
+                    menu:
+                        "Tell about the task":
+                            $ panic = True
+                            main_char "It was clear from Reivi's face that he was frightened by this information, but he was intently trying to hide it."
+                            reivi "Wow, what a horror. I hope you can cope with this infection. I believe in you!"
+                            show ob at right
+                            with dissolve
+                            ob "Oh, Reivi, hi! What are you doing here?"
+                            reivi "Just taking a walk, nothing like that. I'd better go quickly, I won't disturb you, good luck."
+                            hide reivi
+                            with dissolve
+                            hide ob
+                            with dissolve
+                            show ob at left
+                            with dissolve
+                            main_char "As soon as Reivi walked about 20 meters away from us, I felt pain in my arm. Ob grabbed my hand with such force that a bear's paw wouldn't close."
+                            main_char "Even through the closed visor, I felt Ob’s gaze, which literally burned through me."
+                            ob "Stor, do you understand what you're doing? This is a secret mission! Now the whole city will know about it."
+                            ob "We're finished when this reaches the king. You do understand that the letters were handed to everyone for a reason?"
+                            ob "The king doesn't want anyone to know about this, but now everyone will know about it. You are a complete idiot."
+                            main_char "After these words, Ob let go of my hand and we walked towards Hanji. He didn't say another word to me the whole way."
+                        "Don't tell about the task":
+                            $ panic = False
+                            reivi "I understand that your group has secret missions, I do not insist. In any case, good luck to you."
+                            reivi "When you return, we can go to some tavern to relax and chat over a glass or two of ale."
+                            reivi "I'll go, have a nice day. Come back alive!"
+                            hide reivi
+                            with dissolve
+                            main_char "After these words, Reivi walked further down the street, but I managed to notice how he turned around. There was concern in his eyes about this situation."
+                            show ob at left
+                            with dissolve
+                            ob "We can go, I bought everything we need."
+                            stor "Great, let's go to Hanji quickly."
+                            hide ob
+                            with dissolve
+        "Don't go to the store":
+            $ antidote = False
+            show ob at left
+            with dissolve
+            ob "I agree, we don't have much time, let's go to Hanji quickly."
+            hide ob
+            with dissolve
     
+
+
+
+
 
     return
