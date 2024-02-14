@@ -8,19 +8,25 @@ define airis = Character('Airis', color="#ad2d89")
 define letter = Character('Letter', color="ffffff")
 define sariel = Character('Sariel', color="#704178")
 define reivi = Character('Reivi', color="#556b2f")
+define arisius = Character('Arisius', color="#72b7b3")
+define tia = Character('Tia', color="#fbd2c1")
+
+
 
 
 image street = "bg/street.jpg"
 image tavern = "bg/tavern.jpg"
 image near_potion = "bg/near_potion.jpg"
 image potion_shop = "bg/potion_shop.jpg"
+image corridor = "bg/corridor.jpg"
+image cabinet = "bg/cabinet.jpg"
 
 # Например, сцену bg room можно вызвать файлом "bg room.png",
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 
 # Игра начинается здесь:
 label start:
-
+    $ panic = False
     jump first_act
 
     return
@@ -185,7 +191,51 @@ label first_act:
             ob "I agree, we don't have much time, let's go to Hanji quickly."
             hide ob
             with dissolve
-    
+    scene corridor
+    main_char "After 20 minutes of brisk walking, You and I stood outside Hanji's office."
+    if panic:
+        show ob at left
+        with dissolve
+        ob "I won’t tell anyone that Reivi knows about the task, but don’t think that I’m doing this out of kindness."
+        ob "I don't want to jeopardize our mission, so we pretend that you didn't say anything and that I didn't see or hear anything."
+        stor "Thank you for your understanding, Ob."
+        hide ob
+        with dissolve
+    arisius "And you are already here, how good."
+    show arisius at left
+    with dissolve
+    stor "And you, as always, creep up silently. We are, after all, in the same detachment; we might not be frightened."
+    arisius "Well, I'm sorry, it's not my fault that you are so inattentive."
+    main_char "Of course, you can’t tell from him, but once upon a time Arisius was an absolutely full-fledged person, but after many experiments with his body he became like this."
+    main_char "Some parts of his body can extend, his arms and legs have become much stronger thanks to implants. And in general, he has become much stronger, more mobile and more useful in missions."
+    main_char "This does not take into account the fact that he also has basic magic skills. Thanks to this, he is an indispensable member of our party."
+    tia "Apparently everyone forgot about me."
+    show tia at right
+    with dissolve
+    stor "Oh, and you're already here. How are you doing? Long time no see."
+    tia "Everything is as usual. I just returned from a trip yesterday."
+    main_char "On our team, Tia is responsible for speed and surprise. She spent years learning to be stealthy and deadly."
+    main_char "She is an elf, so it’s not clear from her how old she is, and we didn’t ask. Somehow there was no need for a word."
+    hide tia
+    with dissolve
+    show ob at right
+    ob "So, let's come in if everyone is ready."
+    hide ob
+    with dissolve
+    hide arisius
+    with dissolve
+    scene cabinet
+    main_char "123"
+
+
+
+
+
+
+
+
+
+
 
 
 
