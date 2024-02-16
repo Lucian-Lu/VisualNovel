@@ -10,6 +10,7 @@ define sariel = Character('Sariel', color="#704178")
 define reivi = Character('Reivi', color="#556b2f")
 define arisius = Character('Arisius', color="#72b7b3")
 define tia = Character('Tia', color="#fbd2c1")
+define hanji = Character('Hanji', color="#401641")
 
 
 
@@ -20,6 +21,17 @@ image near_potion = "bg/near_potion.jpg"
 image potion_shop = "bg/potion_shop.jpg"
 image corridor = "bg/corridor.jpg"
 image cabinet = "bg/cabinet.jpg"
+image main_square = "bg/main_square.jpg"
+image gates = "bg/gates.jpg"
+image dungeon = "bg/dungeon.jpg"
+image dungeon_room = "bg/dungeon_room.jpg"
+
+
+
+
+
+
+
 
 # Например, сцену bg room можно вызвать файлом "bg room.png",
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
@@ -225,7 +237,198 @@ label first_act:
     hide arisius
     with dissolve
     scene cabinet
-    main_char "123"
+    show hanji at left
+    with dissolve
+    hanji "And you got there quickly. I thought I would have to wait longer."
+    main_char "It seems like I was in this office just a couple of days ago, but every time it feels like the first time."
+    main_char "No matter how beautiful it is here, the feeling is unpleasant. Almost every time I come here, I am told or shown information that I would not like to see."
+    main_char "Same thing this time. If it weren’t for my duty of service, I would never want to go now to understand what happened in that village."
+    main_char "Especially considering the details that were in the letter. I am sure that now there will be more details and they will be even worse than before."
+    hanji "Sit down, now I’ll tell you the plan of action."
+    main_char "Hanji is the most strong-willed woman I've ever met. Every decision she makes on missions and outside of them always turns out to be correct."
+    main_char "In general, Hanji is our commander. No one has ever contradicted her, because they know that she knows what will be better."
+    main_char "I've always admired Hanji. I could never give myself entirely to faith in God."
+    hanji "Basically, the mission is to find out what happened in the village of Tillanium and solve the problem if possible."
+    hanji "Also, one of the points is saving a group of healers and a priest. The priest who was sent to the village is a high-ranking member of the church of the goddess Ayun."
+    hanji "Therefore, the archmage and the king ordered us to save him first."
+    hanji "If it turns out that he is dead, it will be a huge scandal."
+    hanji "Do you have any questions?"
+    show tia at right
+    with dissolve
+    tia "How much will we be paid for the mission?"
+    hide tia
+    with dissolve
+    show arisius at right
+    with dissolve
+    arisius "Tia, is that all you think about? I would have asked something more important."
+    hide arisius
+    with dissolve
+    show tia at right
+    with dissolve
+    tia "What could be more important? I spend my time, energy, arrows, and by the way, they are not so cheap."
+    hanji "Tia, be quiet. They'll pay you enough to buy you enough arrows for a few years. I have already said that this is a very important task for the king."
+    hanji "In addition, if the mission is successful and we manage to save the priest, we will be appointed honored officers of the order."
+    hanji "With this medal you will be able to receive free arrows in any quantity, so don’t worry about it."
+    tia "Then, I have no more questions."
+    hide tia
+    with dissolve
+    show arisius at right
+    with dissolve
+    arisius "Any guesses about what happened in the village?"
+    arisius "It seems to me that this is not a simple infection if such a high-ranking priest could not cope with it."
+    hanji "Yes, you're right. I took a sample of mushrooms from the body of one of the doctors who reached the capital."
+    hanji "They look extremely strange. Also, I found remnants of magical effects on the mushrooms."
+    hanji "Either the priest tried to cure this doctor of mushrooms, but he did not succeed, or this means that the mushrooms were created by magic."
+    hide arisius
+    with dissolve
+    show ob at right
+    with dissolve
+    ob "The situation, of course, is not the best. Then we will need magical support."
+    ob "Hanji, Arisius, we rely on you."
+    hanji "Yes, of course."
+    main_char "Arisius nods."
+    hanji "If there are no more questions, then we can move forward."
+    hanji "I need 10 minutes to get ready. Wait outside for now."
+    hide hanji
+    with dissolve
+    hide ob
+    with dissolve
+    scene main_square
+    main_char "Hanji's office is located in the Heroes' Guild building, so when we went outside we found ourselves in the main square of the city."
+    show ob at left
+    with dissolve
+    ob "I really don't like this task. Some kind of bad feeling."
+    show arisius at right
+    with dissolve
+    arisius "I agree. It seems that in my head I understand that this is our usual task, but inside everything is screaming that something is wrong."
+    show tia at center
+    with dissolve
+    tia "Don't make it scary. Arisius, you yourself said that this is our usual task, which means everything will go as usual."
+    tia "Yes, I was also a little wary that the king himself sent us letters, but it turned out to be because of the priest, so everything is in order."
+    main_char "Although Tia’s words were logical and she tried to calm us down, it was clear from her that she was also nervous."
+    hide ob
+    with dissolve
+    hide tia
+    with dissolve
+    hide arisius
+    with dissolve
+    menu:
+        "Say it's okay":
+            stor "I agree with Tia, everything will go well. The main thing is not to relax and be on your guard."
+            stor "We have already completed similar tasks so many times that we are already capable of any task."
+        "Say you're nervous too":
+            stor "I also have a strange feeling. It looks like when we went out on our first mission."
+            stor "This is probably due to the fact that we have never encountered this before. Hanji is with us this time, so we will listen to her and everything will be fine."
+            stor "Maybe..."
+    show ob at left
+    with dissolve
+    ob "Hey, I didn’t tell you about my experiences so that we all start to be afraid now."
+    ob "There is nothing scary about this task. We'll just do our job and that's it."
+    ob "We stop being nervous and focus on the task."
+    show hanji at right
+    with dissolve
+    hanji "I'm already ready. What are you talking about?"
+    hide ob
+    with dissolve
+    show arisius at left
+    with dissolve
+    arisius "Nothing, Hanji. Can we move out now?"
+    hanji "If everyone is ready, then yes."
+    hide hanji
+    with dissolve
+    hide arisius
+    with dissolve
+    main_char "On the way to the city gates, no one said a word."
+    main_char "Apparently, everyone understood that this task was not as simple as it seemed to us."
+    scene gates
+    main_char "Having reached the gate, Hanji approached one of the guards and whispered something in his ear."
+    show hanji
+    with dissolve
+    hanji "Guys, follow me here."
+    stor "Hanji, shouldn't we go outside the gate and go to the village?"
+    hanji "Literally 10 minutes and we’ll go to the village, come in."
+    hide hanji
+    with dissolve
+    scene dungeon
+    main_char "We followed Hanji into the dark basement along the city wall and stopped in front of the iron door."
+    show hanji at left
+    with dissolve
+    hanji "Just don't be scared."
+    hide hanji
+    with dissolve
+    main_char "Hanji pulled out a set of keys from her pocket and opened the door. From behind the door there was immediately a smell of something bittersweet."
+    main_char "The smell was so strong that I had to hold my nose to prevent vomiting."
+    main_char "Hanji walked inside and called us to follow her."
+    scene dungeon_room
+    main_char "We entered a small room in which there was a jelly table in the center, on which lay the body of a man with a cut stomach and chest."
+    show hanji at left
+    with dissolve
+    hanji "This is the doctor who reached the capital. After his death, we decided to steam him in order to better understand what exactly happened to him."
+    hanji "All internal organs are covered with mushrooms, but these mushrooms have one peculiarity."
+    hanji "They seem to be afraid of sunlight or light in general, so they only grow under the victim's clothing or where there is no light."
+    hanji "One of these places is the internal organs, which is why the victim died."
+    hanji "I think you understand what will need to be done."
+    show arisius at right
+    with dissolve
+    arisius "You'll have to use light spells if you have to come into contact with mushrooms."
+    hanji "Yes, absolutely."
+    hanji "That's all I wanted to show you, now you can go to the village."
+    hide arisius
+    with dissolve
+    hide hanji
+    with dissolve
+    scene gates
+    main_char "After that, we left the basement and headed towards the village."
+    main_char "After what Hanji showed us, it only made me more nervous. I could not remember having seen any similar disease."
+    main_char "Apparently, our fears that this was not an easy task turned out to be true."
+    #end of act 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
