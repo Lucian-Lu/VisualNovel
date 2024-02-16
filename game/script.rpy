@@ -11,6 +11,7 @@ define reivi = Character('Reivi', color="#556b2f")
 define arisius = Character('Arisius', color="#72b7b3")
 define tia = Character('Tia', color="#fbd2c1")
 define hanji = Character('Hanji', color="#401641")
+define unknown = Character('???', color="#bf3952")
 
 
 
@@ -25,6 +26,10 @@ image main_square = "bg/main_square.jpg"
 image gates = "bg/gates.jpg"
 image dungeon = "bg/dungeon.jpg"
 image dungeon_room = "bg/dungeon_room.jpg"
+image road = "bg/road.jpg"
+image forest = "bg/forest.jpg"
+image camp = "bg/camp.jpg"
+image black = "bg/black.png"
 
 
 
@@ -33,12 +38,13 @@ image dungeon_room = "bg/dungeon_room.jpg"
 
 
 
-# Например, сцену bg room можно вызвать файлом "bg room.png",
-# а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
+
 
 # Игра начинается здесь:
 label start:
     $ panic = False
+    $ potion = "None"
+    $ girl = False
     jump first_act
 
     return
@@ -47,9 +53,6 @@ label start:
 
 label first_act:
     scene tavern
-
-
-
     main_char "It was a normal Sunday morning, I had the day off, so I was going to have breakfast and have a glass of beer."
     stor "Hey Airis, what's for breakfast today?"
     main_char "A tavern owner named Airis came out from behind the bar. A very hard-working woman, in the 3 months that I have been living in this tavern, I have never seen her sleep or rest, constantly at work. Sometimes I’m even scared for her."
@@ -382,6 +385,148 @@ label first_act:
     main_char "After what Hanji showed us, it only made me more nervous. I could not remember having seen any similar disease."
     main_char "Apparently, our fears that this was not an easy task turned out to be true."
     #end of act 1
+    jump second_act
+    return
+
+
+
+
+
+
+
+label second_act:
+    scene road
+    main_char "The path to the village lay north through large fields of almost ripened wheat and through a small forest."
+    main_char "Although this was not the longest outing for our team, the road was still quite long."
+    scene forest
+    main_char "When it was already deep night, we were about a mile from the village."
+    show arisius at left
+    with dissolve
+    arisius "Hey, there's something on the edge of the road."
+    hide arisius
+    with dissolve
+    main_char "I looked closer at where Arisius was pointing."
+    main_char "At the edge of the road something glowing reddish could be seen."
+    show hanji at left
+    with dissolve
+    hanji "Let's come closer to get a better look."
+    hanji "We are trying to be quieter, perhaps this is due to the mushrooms from the village."
+    hide hanji
+    with dissolve
+    main_char "We came to a distance of about 15 feet and our guesses were confirmed."
+    main_char "On the edge of the road lay the body of a man covered with red glowing mushrooms."
+    show hanji at left
+    with dissolve
+    hanji "Let's examine the body and hurry to the village. Apparently the fungal disease can spread beyond the village."
+    hide hanji
+    with dissolve
+    main_char "Coming close to the body, it became clear that this was the body of a young girl."
+    stor "Hey Hanji, this is a girl, about 17 years old."
+    main_char "After these words, the girl let out a loud sob and coughed. She involuntarily tried to cover her mouth with her hands and something similar to blood dripped onto her palms."
+    main_char "But there was one difference. The blood gave off a slight reddish glow."
+    stor "Hange, she's alive, what should we do?"
+    show hanji at left
+    with dissolve
+    hanji "We don't have time for this, let's move on. Let's leave her here, if on the way back she's alive, we'll take her to the capital."
+    stor "Hanji, but how can that be? She may die before then. It is unknown how long the mission will last."
+    hanji "Stor, do you want to question my command? If I hear one more objection, then you will lie down next to this girl."
+    hanji "Let's say that you went missing and we couldn't find you. No one will even look for you. All clear?"
+    hanji "Now we have to go, we have a mission in the village."
+    stor "Yes, Commander Hanji."
+    hide hanji
+    with dissolve
+    main_char "It hurt to leave this girl here. Most likely, we were the last chance to survive, but now she is doomed."
+    main_char "Hanji and everyone else moved towards the village. I tried to get up and follow them, but then this girl grabbed my leg."
+    unknown "Hey dad, is that you?"
+    stor "Hanji..."
+    menu:
+        "Say that the girl is conscious":
+            stor "Hanji, this girl is conscious."
+            show hanji at left
+            with dissolve
+            hanji "So what? We will not take her with us, much less waste our medicine or magical powers on her."
+            stor "Hanji, you can't do that. This girl is still alive and conscious, we can’t leave her here!"
+            hanji "Then, you will carry it yourself. If you can’t handle it, then none of us will help you, even if mushrooms appear on you."
+            hide hanji
+            with dissolve
+            menu:
+                "Save the girl":
+                    stor "I agree with that. If I can't handle this, then don't save me. I understand what I'm doing."
+                    show hanji at left
+                    with dissolve
+                    hanji "I understand you. I hope you still have a head on your shoulders."
+                    hide hanji
+                    with dissolve
+                    $ girl = True
+                "Leave the girl here":
+                    stor "Okay, Hanji, I understand you. Sorry for disturbing."
+                    show hanji at left
+                    with dissolve
+                    hanji "You should have done this right away and not contradicted me. We are heading to the village."
+                    hide hanji
+                    with dissolve
+                    menu:
+                        "Finish off the girl":
+                            main_char "I pulled the dagger out of its sheath, plunged it into the girl’s neck and ran it along her throat."
+                            main_char "The girl made a soft popping sound and her hand went limp."
+                            main_char "After that, I threw back the limp hand lying near my leg and followed my team."
+                        "Leave her on the road":
+                            main_char "I removed my hand from my leg and accelerated after the team."
+        "Tell them to wait for you":
+            show hanji at left
+            with dissolve
+            hanji "What's there again?"
+            stor "Nothing, wait for me."
+            hide hanji
+            with dissolve
+    if girl:
+        main_char "Although the girl was very thin, it was difficult to carry her along with armor and weapons."
+        main_char "I was walking at the back of the group and noticed that Ob was also a little behind the others."
+        show ob at left
+        with dissolve
+        ob "You understand how this could turn out, right?"
+        stor "Yes, I understand that if something happens, it will be my responsibility and I will deal with it."
+        ob "That goes without saying. I’m talking about something a little different, with this action you are jeopardizing our mission and us."
+        ob "You are the first person in 10 years who decided to contradict Hanji’s commands, she just won’t let it go, seriously."
+        ob "Her words that you can go missing and no one will look for you, this may be true. Be careful."
+        stor "Thanks for the warning. Hurry to Hanji so she doesn't suspect anything."
+        hide ob
+        with dissolve
+    main_char "When we almost reached the village, I saw a reddish glow from behind the trees."
+    show hanji at left
+    with dissolve
+    hanji "So, now we’ll set up camp, regain our strength and sleep, and in the morning we’ll go to the village to figure out what happened there."
+    hanji "Any objections?"
+    if girl:
+        main_char "I noticed how at this phrase Hanji threw a sharp glance in my direction."
+    show ob at right
+    with dissolve
+    ob "No, Hanji, there are no objections."
+    hide hanji
+    with dissolve
+    hide ob
+    with dissolve
+    scene camp
+    main_char "Me, Ob and Arisius began to set up the camp, and Hange and Tia started the fire at this time and in about half an hour the camp was ready."
+    if girl:
+        main_char "When we were almost setting up the tent, I noticed that Hanzhi approached the girl lying on the ground and poured something from a glass flask into her mouth."
+    show hanji at left
+    with dissolve
+    hanji "So, the patrol size is 4 people. The first will be Ob, then Arisius will replace him, then I will be, and the fourth will be Stor."
+    hanji "Everyone except Ob go to bed immediately to regain your strength for tomorrow."
+    main_char "Hanji went and leaned towards me."
+    hanji "I poured a poison resistance potion into the girl's mouth. He will wake up in about 8 hours, approximately on your watch."
+    hanji "Try to find out as much information as possible so that it does not become a burden for us."
+    main_char "Hange’s hand fell on my shoulder and at the same time I felt severe pain near my collarbone. Her grip was so strong that I could feel her moving her fingers even through the leather armor."
+    hanji "If you disobey my order again, your family will never see you again. They will only receive a letter from the king about how bravely you fought. All clear?"
+    stor "Yes, Commander Hange, everything is clear."
+    hide hanji
+    with dissolve
+    main_char "I was glad that Hange helped this girl, but the information that she could so easily sacrifice me was scary."
+    main_char "After that, everyone except both went into the tents and tried to sleep."
+    scene black
+    main_char "Sleep, of course, was not going well, but after about half an hour I managed to fall asleep."
+    
 
 
 
@@ -399,29 +544,8 @@ label first_act:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    hanji "Attention, be as careful as possible. Avoid contact with mushrooms."
+    hanji "Look for the priest. As soon as you see him or anything similar to traces of his presence, tell me."
 
 
 
