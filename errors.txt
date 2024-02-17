@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 397: expected statement.
-    scece road
-              ^
+File "game/script.rpy", line 60: expected statement.
+    score += 1
+          ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Fri Feb 16 22:09:16 2024
+Sat Feb 17 20:13:24 2024
