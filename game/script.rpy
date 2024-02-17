@@ -12,6 +12,7 @@ define arisius = Character('Arisius', color="#72b7b3")
 define tia = Character('Tia', color="#fbd2c1")
 define hanji = Character('Hanji', color="#401641")
 define unknown = Character('???', color="#bf3952")
+define eri = Character ('Eri', color="#bf3952")
 
 
 
@@ -30,6 +31,7 @@ image road = "bg/road.jpg"
 image forest = "bg/forest.jpg"
 image camp = "bg/camp.jpg"
 image black = "bg/black.png"
+image sunrise_forest = "bg/sunrise_forest.jpg"
 
 
 
@@ -45,6 +47,7 @@ label start:
     $ panic = False
     $ potion = "None"
     $ girl = False
+    $ girl_alive = True
     jump first_act
 
     return
@@ -390,10 +393,6 @@ label first_act:
 
 
 
-
-
-
-
 label second_act:
     scene road
     main_char "The path to the village lay north through large fields of almost ripened wheat and through a small forest."
@@ -470,6 +469,7 @@ label second_act:
                             main_char "I pulled the dagger out of its sheath, plunged it into the girl’s neck and ran it along her throat."
                             main_char "The girl made a soft popping sound and her hand went limp."
                             main_char "After that, I threw back the limp hand lying near my leg and followed my team."
+                            $ girl_alive = False
                         "Leave her on the road":
                             main_char "I removed my hand from my leg and accelerated after the team."
         "Tell them to wait for you":
@@ -507,65 +507,141 @@ label second_act:
     hide ob
     with dissolve
     scene camp
-    main_char "Me, Ob and Arisius began to set up the camp, and Hange and Tia started the fire at this time and in about half an hour the camp was ready."
+    main_char "Me, Ob and Arisius began to set up the camp, and Hanji and Tia started the fire at this time and in about half an hour the camp was ready."
     if girl:
-        main_char "When we were almost setting up the tent, I noticed that Hanzhi approached the girl lying on the ground and poured something from a glass flask into her mouth."
+        main_char "When we were almost setting up the tent, I noticed that Hanji approached the girl lying on the ground and poured something from a glass flask into her mouth."
     show hanji at left
     with dissolve
     hanji "So, the patrol size is 4 people. The first will be Ob, then Arisius will replace him, then I will be, and the fourth will be Stor."
     hanji "Everyone except Ob go to bed immediately to regain your strength for tomorrow."
-    main_char "Hanji went and leaned towards me."
-    hanji "I poured a poison resistance potion into the girl's mouth. He will wake up in about 8 hours, approximately on your watch."
-    hanji "Try to find out as much information as possible so that it does not become a burden for us."
-    main_char "Hange’s hand fell on my shoulder and at the same time I felt severe pain near my collarbone. Her grip was so strong that I could feel her moving her fingers even through the leather armor."
-    hanji "If you disobey my order again, your family will never see you again. They will only receive a letter from the king about how bravely you fought. All clear?"
-    stor "Yes, Commander Hange, everything is clear."
+    if girl:
+        main_char "Hanji went and leaned towards me."
+        hanji "I poured a poison resistance potion into the girl's mouth. He will wake up in about 8 hours, approximately on your watch."
+        hanji "Try to find out as much information as possible so that it does not become a burden for us."
+        main_char "Hanji’s hand fell on my shoulder and at the same time I felt severe pain near my collarbone. Her grip was so strong that I could feel her moving her fingers even through the leather armor."
+        hanji "If you disobey my order again, your family will never see you again. They will only receive a letter from the king about how bravely you fought. All clear?"
+    stor "Yes, Commander Hanji, everything is clear."
     hide hanji
     with dissolve
-    main_char "I was glad that Hange helped this girl, but the information that she could so easily sacrifice me was scary."
-    main_char "After that, everyone except both went into the tents and tried to sleep."
+    if girl:
+        main_char "I was glad that Hanji helped this girl, but the information that she could so easily sacrifice me was scary."
+        main_char "After that, everyone except both went into the tents and tried to sleep."
+    else:
+        main_char "I was tormented by thoughts of what would have happened if I had saved that girl, but the thought that I might not return from this mission due to non-compliance with command frightened me even more."
     scene black
     main_char "Sleep, of course, was not going well, but after about half an hour I managed to fall asleep."
-    
+    if girl:
+        main_char "I felt something hit my stomach with force."
+        hanji "Hey, good-natured fool, wake up. It's your turn to go out on patrol."
+        show hanji at left
+        with dissolve
+        scene camp
+        hanji "Moreover, your new friend woke up there. Go say hello for the sake of decency."
+        stor "Yes, Commander, Hanji. I'm starting patrol."
+        hide hanji
+        with dissolve
+    else:
+        scene camp
+        show hanji at left
+        with dissolve
+        hanji "Hey Stor, wake up. Time for your watch."
+        stor "Yes, 2 minutes and I will start patrolling."
+        hide hanji
+        with dissolve
+    if girl:
+        main_char "I left the tent and saw a girl sitting near the fire and warming her hands on it."
+        main_char "When she saw me getting out of the tent, she waved her hand and smiled sweetly at me."
+        show eri at left
+        with dissolve
+        stor "Hello. What is your name?"
+        eri "My name is Eri, what's yours?"
+        stor "Stor. What were you doing on that road?"
+        eri "To be honest, I don’t remember how I ended up like this, but that scary woman who was here before you told me that you found me on some road about a mile from here."
+        eri "I don’t remember how I got there or what happened. She also said that you were the one who decided to save me. Of course, it was not very nice of her to say that she was against my salvation, but I understand her."
+        stor "Well, yes. That's pretty much how it was. You don't remember anything at all what happened to you?"
+        eri "Actually, I remember a little about what happened, but I was scared to tell that woman about it."
+        eri "And you saved me, so I trust you and can tell you."
+        eri "About a month ago, a strange man came to our village. His hat looked like a mushroom's hat, but no one thought anything of it."
+        eri "He asked to stay for a couple of days to recuperate after a long journey and said that after that he would leave the village. One old woman took him in."
+        eri "He actually stayed for a few days and left. This grandmother didn’t have anything missing from her house, he didn’t do anything to her, but after a couple of days strange events began."
+        eri "That old woman died in her bed, and those who saw her body noticed a red glow from her body."
+        eri "Then the whole village was overwhelmed by this infection. We sent a messenger to the capital, after which they sent us a priest and doctors, but they were unable to cope with this infection and they also became infected."
+        eri "Everyone except the priest, he spent a long time trying to cure us and the doctors, giving them holy water and using some spells. Nothing helped."
+        eri "About three days ago this man came again, after which all this began. What we thought was a mushroom-shaped hat turned out to be a real mushroom. And it was all made from mushrooms."
+        eri "The priest tried to negotiate with him to do something to save the villagers, but the Mushroom Man did not listen to him and took the priest to his hut."
+        eri "After this, the priest was not visible. Almost all the villagers died when I decided to run away for help. I think there is no one alive there now."
+        eri "The priest and all the residents believed that the problem was with this man. Most likely, if you defeat him or persuade him to remove this infection, the infection will go away."
+        stor "We'll definitely look into this. You can rely on us. My allies and I are a team that will not abandon such a matter without a solution."
+        eri "Okay, I believe in you"
+        main_char "The next 2 hours of my patrol were spent talking with Eri. She turned out to be an extremely sweet girl, but with a sad fate."
+        main_char "Her parents and friends died due to the infection, and she was the only one who was able to escape, after which she crawled towards the city for 3 days, but fell exhausted."
+        stor "Forgive me, of course, but I will have to tell information about the village and this man to my teammates. This is necessary so that we can deal with this."
+        eri "Yes, I understand, it's okay. If you say that there is no way without this, then I believe you."
+        hide eri
+        with dissolve
+        main_char "When the sun had already fully risen in the sky, everyone woke up and I told them about the history of Eri and what happened in the village."
+        scene sunrise_forest
+        main_char "We packed up the camp and began to decide what to do with this situation."
+        show hanji at left
+        with dissolve
+        hanji "So, we need to go to that hut and either kill this person, but then the fungal infection will not leave the village and we will not be able to save the priest."
+        hanji "Or we will agree with this person so that he gets rid of this infection and gives us the priest. One problem remains. I don't know what we can offer him in return."
+        hanji "Anyone have any ideas?"
+        show eri ar right
+        with dissolve
+        eri "I'm not sure, but maybe he can be convinced, because when he came the second time, when the village was overrun by mushrooms, he was disappointed with it."
+        eri "Perhaps he himself does not like what is happening or it is not his fault. I think we need to talk first and find out what he needs."
+        hanji "I didn’t ask your opinion, but so be it, I’ll listen to your opinion. Anyone else have any guesses?"
+        stor "No, we don't have enough information. We need to first see what is happening in the village and examine this man's hut."
+        hanji "Yes, I agree with that. Let's do so. If there are prerequisites that the girl’s assumption may be true, then we will try to talk and convince this person."
+        hanji "So, we're heading to the village now."
+        main_char "Hanji looked towards the girl."
+        hanji "Can you go on your own?"
+        eri "Yes, I feel better."
+        hanji "So you'll be walking behind us. Try not to become a burden. Avoid any collisions with the enemy. It’s better to be silent so as not to blurt out anything unnecessary."
+        hide hanji
+        with dissolve
+        hide eri
+        with dissolve
+    else:
+        main_char "Hanji went to bed, and I left the tent and looked around."
+        main_char "It was quite chilly, but thanks to the fire it was quite manageable. As I expected, the patrol went on without any problems until dawn."
+        main_char "I suddenly felt hungry, so I took out a packed lunch from my bag and decided to warm it up on the almost burnt-out fire."
+        tia "Decided to have breakfast alone?"
+        show tia at left
+        with dissolve
+        stor "You know, it’s boring on patrol, so I decided to occupy my time with something."
+        tia "Why are you always so serious? You and Ob are very much in agreement on this. I was joking."
+        main_char "Tia also took out a packed lunch from her bag and handed it to me."
+        tia "Warm it up, please. I'll go and warm up for now."
+        hide tia
+        with dissolve
+        main_char "I started heating up the packed lunch on the fire while Tia went a little further into the forest to warm up."
+        stor "Tia, your packed lunch is warm. You can go eat."
+        ob "I'll see that you're our cook today. Will you warm me up a packed lunch too?"
+        show ob at left
+        with dissolve
+        stor "Go to hell. Warm up yourself your own packed lunch."
+        ob "Don't get so excited."
+        hide ob
+        with dissolve
+        main_char "Me, Tia and Ob sat around the burnt fire to have breakfast, and a little later Arisius and Hanji woke up."
+        main_char ""
+        show hanji at left
+        with dissolve
+        hanji "So now we need to find out what's going on in the village. Be as attentive and careful as possible."
+        hanji "If you see a possible threat or enemy, immediately inform others and maintain the usual grouping."
+        hanji "All clear?"
+        stor "Yes, everything is clear, Commander Hanji."
+        hanji "Time to head to the village."
+        hide hanji
+        with dissolve
+    jump third_act
+    #end of second act
+    return
+
+label third_act:
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    hanji "Attention, be as careful as possible. Avoid contact with mushrooms."
-    hanji "Look for the priest. As soon as you see him or anything similar to traces of his presence, tell me."
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    main_char "123"
     return
