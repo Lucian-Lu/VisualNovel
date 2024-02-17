@@ -676,10 +676,6 @@ label third_act:
         with dissolve
         mushroom "Friends, I understand that you are wary of me because you don’t know what I am, but we can talk. Perhaps we will come to some kind of compromise."
         menu:
-            "There is nothing to talk about! {i}insolence{/i}":
-                $ score -= 1
-                mushroom "Why so rude right away? Let's talk anyway. I think you have enough questions that I could answer."
-                mushroom "For example, what can we do to prevent mushrooms from spreading further"
             "Yes, we should talk {i}neutral{/i}":
                 $ score += 1
                 mushroom "So we can talk calmly, what do you want to know?"
@@ -689,160 +685,29 @@ label third_act:
                 mushroom "But to make it easier, my name is Mash. I am Vegepygmy, the intelligent mushroom. Once upon a time there were a large number of us in this world, but due to some events, there were much fewer of us and the survivors had to hide."
                 mushroom "Basically, we lived underground, but because of the dangers, we began to climb to the surface to find food."
                 mushroom "But I am not one of the real Vegipygmies, I grew up on the body of some fallen magician. From that time on, I wandered in these forests, feeding on carrion, until I found this village."
-        if score == 1:
-            mushroom "Then I'm ready to answer your questions."
-            menu:
-                "Did you do this to the village of your own free will? {i}neutral{/i}":
-                    $ score += 1
-                    mushroom "I didn't really mean for this to happen, but I have no control over where I leave my particles."
-                    mushroom "I wouldn't want this to happen to anyone else. So I would like you to help me with this."
-                    menu:
-                        "How can we help you? {i}information{/i}":
-                            $ score += 1
-                            #3
-                            mushroom "I need a way to find a way into the underground, but there is one problem with this."
-                            mushroom "Due to the structure of my body, many predators and other animals sense me from a long distance."
-                            mushroom "Therefore, I need your help to get to the entrance to the underground."
-                            hide mushroom
-                            with dissolve
-                            jump good_end
-                        "We won't help you. {i}insolence{/i}":
-                            $ score -= 1
-                            #1
-                            mushroom "Then, we have nothing more to say. Maybe I won't cooperate with you anymore."
-                            mushroom "Now your only choice is to kill me. The priest who is now in my hut will most likely die."
-                            mushroom "Nothing holds me back in this place or in this life anymore. I'm ready, you can start."
-                            hide mushroom
-                            with dissolve
-                            main_char "The mushroom man knelt down, lowered his arms and stretched out his neck."
-                            main_char "With a quick movement, he pulled his sword out of its sheath and cut the throat of the mushroom man."
-                            main_char "His head fell to the ground and at the same time the mushrooms on his body stopped glowing."
-                            show hanji at left
-                            with dissolve
-                            hanji "We need to check the hut. There must be a priest there."
-                            hide hanji
-                            with dissolve
-                            main_char "When we went inside the hut, you saw the priest lying on the only bed in the hut, covered in mushrooms."
-                            main_char "Hanji and Arisius ran up to the priest and tried to use healing spells and light spells, but nothing helped."
-                            show hanji at left
-                            with dissolve
-                            hanji "Does anyone have an antidote or healing potion?"
-                            hide hanji
-                            with dissolve
-                            jump loop
-                            if priest:
-                                scene road
-                                main_char "We reached the capital as quickly as possible, carrying the priest in our arms."
-                                scene dungeon_room
-                                main_char "We went down to the basement again, where Hanji showed us the body of one of the doctors. There was nothing in the room where the body had previously lain."
-                                main_char "We placed the priest on an empty table, after which the archmage arrived and began to perform some kind of ritual over the priest, and we were asked to go home."
-                                scene main_square
-                                main_char "The next day we were called to the King's reception hall, where we were presented with our award and medal for bravery."
-                                main_char "Coming out of the king's reception room, we saw Eri standing nearby."
-                                show hanji at left
-                                with dissolve
-                                hanji "Everyone, come here. You come too."
-                                main_char "Hanji looked towards Eri."
-                                hanji "So, the mission can be considered more or less successful, so today everyone is gathering in my office."
-                                hanji "And you will come with me. See you all."
-                                hide hanji
-                                with dissolve
-                                main_char "Hanji took Eri's hand and they walked away towards the market square."
-                                scene cabinet
-                                main_char "In the evening, we all gathered in Hanji’s office to honor the memory of the victims."
-                                show hanji at left
-                                with dissolve
-                                hanji "Let's drink to the dead. Let's honor their memory."
-                                hide hanji
-                                with dissolve
-                                main_char "We sat for a long time talking, but I sometimes noticed how Hanji and Eri looked at each other, which was a mystery to me."
-                                main_char "When, at the end of the meeting, Hanji told me where she and Eri went after our meeting with the king, everything became clear."
-                                show hanji at left
-                                with dissolve
-                                hanji "I want to tell you one piece of information. Eri and I visited a priest I knew and now Eri will live in the capital and serve in the church."
-                                stor "Wow, congratulations, Eri. I'm sure you can handle it."
-                                hide hanji
-                                with dissolve
-                                scene black
-                                main_char "A few days later, the king again called us to his place, where we saw the priest Ayun standing."
-                                main_char "The king and priest thanked us for the completed mission."
-                                if panic:
-                                    main_char "After some time, information about the village became known to the people and the king had to leave his post."
-                                else:
-                                    main_char "After some time, the king made a statement and talked about what happened and how they managed to deal with it."
-                            else:
-                                show hanji at left
-                                with dissolve
-                                hanji "Oh no. He died..."
-                                hide hanji
-                                with dissolve
-                                scene road
-                                main_char "After these words, we very quickly gathered on the main street of the village and moved towards the village."
-                                main_char "I glanced at Hanji a couple of times and it was clear that this situation had completely thrown her off her emotional balance."
-                                main_char "I've never seen her so upset. I don't know if it was because the mission went wrong or because of the sacrifices the kingdom suffered."
-                                main_char "Almost reaching the gate, Hanji stopped and turned to us."
-                                show hanji at left
-                                with dissolve
-                                hanji "No one should know about what happened in this village. If people find out about this, something irresistible could happen."
-                                hanji "Therefore, I ask you not to tell anyone about this. Try not to raise this topic even among yourself, others may hear it and rumors will spread throughout the kingdom."
-                                show arisius at right
-                                with dissolve
-                                arisius "Of course, Hanji, we understand that. Everyone will keep their mouths shut."
-                                hide arisius
-                                with dissolve
-                                stor "Yes, we will remain silent about this case, but what should we do about the situation in the village? We can't just leave her like that."
-                                stor "If the situation with the village is not resolved, then this disease may spread to nearby villages and soon reach the capital."
-                                hanji "We will tell the archmage and the king about all the information we found. I'm sure they'll sort it out."
-                                hanji "This is a very important matter for them, especially after the death of the priest. From now on, this mission is no longer our busines"
-                                hanji "In fact, I don’t want to remember what I saw in the village. I haven't encountered something like this for a long time."
-                                hanji "In any case, we will be given awards, so after the awards, I propose to meet in my office in the evening."
-                                hanji "Let us remember the memory of those who died."
-                                hide hanji
-                                with dissolve
-                                scene main_square
-                                main_char "After returning, we were called into the king's reception room, where we were presented with an award for the mission and a medal for courage."
-                                main_char "Coming out of the king's reception room, we saw Eri standing nearby."
-                                show hanji at left
-                                with dissolve
-                                hanji "Hey you, come here."
-                                main_char "Hanji looked towards Eri."
-                                hanji "And you will come with me. See you all."
-                                hide hanji
-                                with dissolve
-                                main_char "Hanji took Eri's hand and they walked away towards the market square."
-                                scene cabinet
-                                main_char "In the evening, we all gathered in Hanji’s office to honor the memory of the victims."
-                                show hanji at left
-                                with dissolve
-                                hanji "Let's drink to the dead. Let's honor their memory."
-                                hide hanji
-                                with dissolve
-                                main_char "We sat for a long time talking, but I sometimes noticed how Hanji and Eri looked at each other, which was a mystery to me."
-                                main_char "When, at the end of the meeting, Hanji told me where she and Eri went after our meeting with the king, everything became clear."
-                                show hanji at left
-                                with dissolve
-                                hanji "I want to tell you one piece of information. Eri and I visited a priest I knew and now Eri will live in the capital and serve in the church."
-                                stor "Wow, congratulations, Eri. I'm sure you can handle it."
-                                hide hanji
-                                with dissolve
-                                scene black
-                                if panic:
-                                    main_char "After some time, information about the village became known to the people and the king had to leave his post."
-                                else:
-                                    main_char "After some time, the king made a statement and talked about what happened and how they managed to deal with it."
-                "You will be held accountable for what you did to the village! {i}insolence{/i}":
-                    $ score -= 1
-                    
-        elif score == -1:
-
-        else:
-
-
-
-
-
-
-
+        mushroom "Then I'm ready to answer your questions."
+        menu:
+            "Did you do this to the village of your own free will? {i}neutral{/i}":
+                $ score += 1
+                mushroom "I didn't really mean for this to happen, but I have no control over where I leave my particles."
+                mushroom "I wouldn't want this to happen to anyone else. So I would like you to help me with this."
+                menu:
+                    "How can we help you? {i}information{/i}":
+                        $ score += 1
+                        #3
+                        mushroom "I need a way to find a way into the underground, but there is one problem with this."
+                        mushroom "Due to the structure of my body, many predators and other animals sense me from a long distance."
+                        mushroom "Therefore, I need your help to get to the entrance to the underground."
+                        hide mushroom
+                        with dissolve
+                        jump good_ending
+                    "We won't help you. {i}insolence{/i}":
+                        jump mid_ending
+            "You will be held accountable for what you did to the village! {i}insolence{/i}":
+                $ score -= 1
+                mushroom "I understand that, but I couldn't do anything about what happened."
+                mushroom "Apparently, we won’t be able to have an adequate conversation."
+                jump mid_ending
     else:
         #bad ending
         jump bad_ending
@@ -891,7 +756,7 @@ label loop:
                 jump loop
     return
 
-label good_end:
+label good_ending:
 
     return
 
@@ -1013,4 +878,129 @@ label bad_ending:
     letter "This morning, the commander of the archmage's special squad, Hanji Zoe, was found hanged in her office. Mushrooms similar to those from the village of Tillanium were found on her body."
     letter "Her body will be burned tonight outside the city walls. The entire special response team must be notified. This information must remain confidential."
     main_char "End of story"
+    return
+
+label mid_ending:
+    $ score -= 1
+    mushroom "Then, we have nothing more to say. Maybe I won't cooperate with you anymore."
+    mushroom "Now your only choice is to kill me. The priest who is now in my hut will most likely die."
+    mushroom "Nothing holds me back in this place or in this life anymore. I'm ready, you can start."
+    hide mushroom
+    with dissolve
+    main_char "The mushroom man knelt down, lowered his arms and stretched out his neck."
+    main_char "With a quick movement, he pulled his sword out of its sheath and cut the throat of the mushroom man."
+    main_char "His head fell to the ground and at the same time the mushrooms on his body stopped glowing."
+    show hanji at left
+    with dissolve
+    hanji "We need to check the hut. There must be a priest there."
+    hide hanji
+    with dissolve
+    main_char "When we went inside the hut, you saw the priest lying on the only bed in the hut, covered in mushrooms."
+    main_char "Hanji and Arisius ran up to the priest and tried to use healing spells and light spells, but nothing helped."
+    show hanji at left
+    with dissolve
+    hanji "Does anyone have an antidote or healing potion?"
+    hide hanji
+    with dissolve
+    jump loop
+    if priest:
+        scene road
+        main_char "We reached the capital as quickly as possible, carrying the priest in our arms."
+        scene dungeon_room
+        main_char "We went down to the basement again, where Hanji showed us the body of one of the doctors. There was nothing in the room where the body had previously lain."
+        main_char "We placed the priest on an empty table, after which the archmage arrived and began to perform some kind of ritual over the priest, and we were asked to go home."
+        scene main_square
+        main_char "The next day we were called to the King's reception hall, where we were presented with our award and medal for bravery."
+        main_char "Coming out of the king's reception room, we saw Eri standing nearby."
+        show hanji at left
+        with dissolve
+        hanji "Everyone, come here. You come too."
+        main_char "Hanji looked towards Eri."
+        hanji "So, the mission can be considered more or less successful, so today everyone is gathering in my office."
+        hanji "And you will come with me. See you all."
+        hide hanji
+        with dissolve
+        main_char "Hanji took Eri's hand and they walked away towards the market square."
+        scene cabinet
+        main_char "In the evening, we all gathered in Hanji’s office to honor the memory of the victims."
+        show hanji at left
+        with dissolve
+        hanji "Let's drink to the dead. Let's honor their memory."
+        hide hanji
+        with dissolve
+        main_char "We sat for a long time talking, but I sometimes noticed how Hanji and Eri looked at each other, which was a mystery to me."
+        main_char "When, at the end of the meeting, Hanji told me where she and Eri went after our meeting with the king, everything became clear."
+        show hanji at left
+        with dissolve
+        hanji "I want to tell you one piece of information. Eri and I visited a priest I knew and now Eri will live in the capital and serve in the church."
+        stor "Wow, congratulations, Eri. I'm sure you can handle it."
+        hide hanji
+        with dissolve
+        scene black
+        main_char "A few days later, the king again called us to his place, where we saw the priest Ayun standing."
+        main_char "The king and priest thanked us for the completed mission."
+        if panic:
+            main_char "After some time, information about the village became known to the people and the king had to leave his post."
+        else:
+            main_char "After some time, the king made a statement and talked about what happened and how they managed to deal with it."
+    else:
+        show hanji at left
+        with dissolve
+        hanji "Oh no. He died..."
+        hide hanji
+        with dissolve
+        scene road
+        main_char "After these words, we very quickly gathered on the main street of the village and moved towards the village."
+        main_char "I glanced at Hanji a couple of times and it was clear that this situation had completely thrown her off her emotional balance."
+        main_char "I've never seen her so upset. I don't know if it was because the mission went wrong or because of the sacrifices the kingdom suffered."
+        main_char "Almost reaching the gate, Hanji stopped and turned to us."
+        show hanji at left
+        with dissolve
+        hanji "No one should know about what happened in this village. If people find out about this, something irresistible could happen."
+        hanji "Therefore, I ask you not to tell anyone about this. Try not to raise this topic even among yourself, others may hear it and rumors will spread throughout the kingdom."
+        show arisius at right
+        with dissolve
+        arisius "Of course, Hanji, we understand that. Everyone will keep their mouths shut."
+        hide arisius
+        with dissolve
+        stor "Yes, we will remain silent about this case, but what should we do about the situation in the village? We can't just leave her like that."
+        stor "If the situation with the village is not resolved, then this disease may spread to nearby villages and soon reach the capital."
+        hanji "We will tell the archmage and the king about all the information we found. I'm sure they'll sort it out."
+        hanji "This is a very important matter for them, especially after the death of the priest. From now on, this mission is no longer our busines"
+        hanji "In fact, I don’t want to remember what I saw in the village. I haven't encountered something like this for a long time."
+        hanji "In any case, we will be given awards, so after the awards, I propose to meet in my office in the evening."
+        hanji "Let us remember the memory of those who died."
+        hide hanji
+        with dissolve
+        scene main_square
+        main_char "After returning, we were called into the king's reception room, where we were presented with an award for the mission and a medal for courage."
+        main_char "Coming out of the king's reception room, we saw Eri standing nearby."
+        show hanji at left
+        with dissolve
+        hanji "Hey you, come here."
+        main_char "Hanji looked towards Eri."
+        hanji "And you will come with me. See you all."
+        hide hanji
+        with dissolve
+        main_char "Hanji took Eri's hand and they walked away towards the market square."
+        scene cabinet
+        main_char "In the evening, we all gathered in Hanji’s office to honor the memory of the victims."
+        show hanji at left
+        with dissolve
+        hanji "Let's drink to the dead. Let's honor their memory."
+        hide hanji
+        with dissolve
+        main_char "We sat for a long time talking, but I sometimes noticed how Hanji and Eri looked at each other, which was a mystery to me."
+        main_char "When, at the end of the meeting, Hanji told me where she and Eri went after our meeting with the king, everything became clear."
+        show hanji at left
+        with dissolve
+        hanji "I want to tell you one piece of information. Eri and I visited a priest I knew and now Eri will live in the capital and serve in the church."
+        stor "Wow, congratulations, Eri. I'm sure you can handle it."
+        hide hanji
+        with dissolve
+        scene black
+        if panic:
+            main_char "After some time, information about the village became known to the people and the king had to leave his post."
+        else:
+            main_char "After some time, the king made a statement and talked about what happened and how they managed to deal with it."
     return
