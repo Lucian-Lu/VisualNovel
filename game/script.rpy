@@ -37,6 +37,8 @@ image sunrise_forest = "bg/sunrise_forest.jpg"
 image village = "bg/village.jpg"
 image house_inside = "bg/house_inside.jpg"
 image mushroom_hut = "bg/mushroom_hut.jpg"
+image canyon = "bg/canyon.jpg"
+image hall = "bg/hall.jpg"
 
 
 
@@ -56,6 +58,7 @@ label start:
     $ girl = False
     $ girl_alive = True
     $ score = 0
+    $ ending = "n"
     jump first_act
 
     return
@@ -685,7 +688,7 @@ label third_act:
                 mushroom "But to make it easier, my name is Mash. I am Vegepygmy, the intelligent mushroom. Once upon a time there were a large number of us in this world, but due to some events, there were much fewer of us and the survivors had to hide."
                 mushroom "Basically, we lived underground, but because of the dangers, we began to climb to the surface to find food."
                 mushroom "But I am not one of the real Vegipygmies, I grew up on the body of some fallen magician. From that time on, I wandered in these forests, feeding on carrion, until I found this village."
-        mushroom "Then I'm ready to answer your questions."
+        mushroom "Now I'm ready to answer your questions."
         menu:
             "Did you do this to the village of your own free will? {i}neutral{/i}":
                 $ score += 1
@@ -727,6 +730,7 @@ label loop:
             hide hanji
             with dissolve
             $ priest = False
+            jump mid_ending_2
         "Take the healing potion out of your pocket.":
             if potion == "Healing":
                 main_char "I took the healing potion out of my pocket and handed it to Hanji."
@@ -738,6 +742,7 @@ label loop:
                 hide hanji
                 with dissolve
                 $ priest = True
+                jump mid_ending_2
             else:
                 game "Unfortunately, due to your choices throughout the story, this option is locked. Choose another option."
                 jump loop
@@ -751,13 +756,75 @@ label loop:
                 hide hanji
                 with dissolve
                 $ priest = True
+                jump mid_ending_2
             else:
                 game "Unfortunately, due to your choices throughout the story, this option is locked. Choose another option."
                 jump loop
     return
 
 label good_ending:
-
+    show hanji at left
+    with dissolve
+    hanji "Hmm, I know one rift. I think it would be suitable as a passage to the underground."
+    show mushroom at right
+    with dissolve
+    mushroom "Where is it?"
+    hanji "Ten miles from here, at the foot of the Dragon Ridge"
+    mushroom "So we need to move there."
+    hanji "Can you remove the effects of the mushroom disease from the village and save the priest?"
+    mushroom "I can save the priest, but I cannot remove the events in the village. If I go far from here, then after a while all the mushrooms will disappear."
+    hanji "Okay, then let's get to rescuing the priest."
+    mushroom "Come with me."
+    hide hanji
+    with dissolve
+    hide mushroom
+    with dissolve
+    main_char "The mushroom man and I went into the hut. The priest was lying on the only bed in the hut, covered in mushrooms."
+    main_char "The mushroom man approached the bed and put his hand on the part of the priest’s hand covered with mushrooms and began to pronounce some strange words."
+    main_char "The mushrooms began to glow much stronger, just like the man himself. After a few minutes, the mushrooms on the priest's body began to decrease in size, and the mushrooms on the man's body began to swell and become larger."
+    show mushroom at right
+    with dissolve
+    mushroom "In a couple of days, all the mushrooms will be gone from his body. He is fine now, his life is not in danger."
+    mushroom "I think he'll be unconscious for the rest of the day, so you should make it back before he wakes up."
+    show hanji at left
+    with dissolve
+    hanji "If that's true, then we should hurry up. Let's move out."
+    hide hanji
+    with dissolve
+    hide mushroom
+    with dissolve
+    scene canyon
+    main_char "The path to the rift lay through a dense forest, in which it was not very easy to walk; by noon we reached the place."
+    main_char "Approaching the edge of the cliff, the mushroom man, without saying a word, looked back at us and jumped down."
+    show hanji at left
+    with dissolve
+    hanji "My guess is that the priest will wake up in 4 hours, so let's hurry back. We have to get there before he wakes up."
+    hide hanji
+    with dissolve
+    scene mushroom_hut
+    main_char "A little before sunset we reached the hut and went inside."
+    main_char "Less than half an hour later the priest woke up. The mushrooms on his body had almost completely disappeared; they were still visible from under his clothes."
+    main_char "We explained to the priest what happened and he agreed to walk with us to the capital."
+    scene main_square
+    main_char "The next morning we delivered the priest to the capital."
+    main_char "That same evening, the king called us to his chambers and personally, as promised, gave us our reward."
+    scene hall
+    main_char "In honor of the rescue of the priest, the king decided to throw a big feast, to which we were also invited."
+    main_char "At the same feast, we were officially given our medals for bravery and declared honorary adventurers."
+    show hanji at left
+    with dissolve
+    hanji "Stor, what are you going to do with so much money?"
+    stor "I just wanted to talk about this. I will no longer be an adventurer. At least in the near future. I need some rest"
+    stor "I'll go see my family. I haven’t been there for a long time; somehow I couldn’t see him on such frequent assignments."
+    stor "We will renovate the house with dad, I think they will be happy."
+    hanji "Stor, your parents will be glad just to see you in health."
+    hanji "I probably won’t be a squad leader anymore either. Maybe I’ll go on some kind of trip to the mountains or to monasteries."
+    hide hanji
+    with dissolve
+    scene black
+    main_char "The whole feast was spent talking about our team and old times. The unanimous decision was to disband our team for an indefinite period..."
+    $ ending = "g"
+    jump end
     return
 
 
@@ -877,7 +944,8 @@ label bad_ending:
     with dissolve
     letter "This morning, the commander of the archmage's special squad, Hanji Zoe, was found hanged in her office. Mushrooms similar to those from the village of Tillanium were found on her body."
     letter "Her body will be burned tonight outside the city walls. The entire special response team must be notified. This information must remain confidential."
-    main_char "End of story"
+    $ ending = "b"
+    jump end
     return
 
 label mid_ending:
@@ -903,6 +971,9 @@ label mid_ending:
     hide hanji
     with dissolve
     jump loop
+    return
+
+label mid_ending_2:
     if priest:
         scene road
         main_char "We reached the capital as quickly as possible, carrying the priest in our arms."
@@ -943,12 +1014,9 @@ label mid_ending:
             main_char "After some time, information about the village became known to the people and the king had to leave his post."
         else:
             main_char "After some time, the king made a statement and talked about what happened and how they managed to deal with it."
+        $ ending = "mg"
+        jump end
     else:
-        show hanji at left
-        with dissolve
-        hanji "Oh no. He died..."
-        hide hanji
-        with dissolve
         scene road
         main_char "After these words, we very quickly gathered on the main street of the village and moved towards the village."
         main_char "I glanced at Hanji a couple of times and it was clear that this situation had completely thrown her off her emotional balance."
@@ -1003,4 +1071,24 @@ label mid_ending:
             main_char "After some time, information about the village became known to the people and the king had to leave his post."
         else:
             main_char "After some time, the king made a statement and talked about what happened and how they managed to deal with it."
+        $ ending = "mb"
+        jump end
+    return
+
+# jump end
+label end:
+    scene black
+    game "Thanks for playing our game. Hope you enjoyed it."
+    if ending == "g":
+        game "You made it to the good ending. In our game, in addition to this ending, there are 3 more. You can try to complete it all."
+        game "Remember that every decision you make can affect the course of history and its ending."
+    elif ending == "mg":
+        game "You made it to the medium-good ending. In our game, in addition to this ending, there are 3 more. You can try to complete it all."
+        game "Remember that every decision you make can affect the course of history and its ending."
+    elif ending == "mb":
+        game "You made it to the medium-bad ending. In our game, in addition to this ending, there are 3 more. You can try to complete it all."
+        game "Remember that every decision you make can affect the course of history and its ending."
+    elif ending == "b":
+        game "You made it to the bad ending. In our game, in addition to this ending, there are 3 more. You can try to complete it all."
+        game "Remember that every decision you make can affect the course of history and its ending."
     return
