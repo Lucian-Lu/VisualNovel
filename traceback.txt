@@ -1,28 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 196, in script
-    if panic:
-  File "game/script.rpy", line 196, in <module>
-    if panic:
-NameError: name 'panic' is not defined
+  File "game/script.rpy", line 590, in script
+    show eri ar right
+Exception: Image 'eri' does not accept attributes 'ar right'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 196, in script
-    if panic:
-  File "C:\Users\Greshnick\Desktop\renpy-8.2.0-sdk\renpy\ast.py", line 1842, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\Greshnick\Desktop\renpy-8.2.0-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Greshnick\Desktop\renpy-8.2.0-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 196, in <module>
-    if panic:
-NameError: name 'panic' is not defined
+  File "game/script.rpy", line 590, in script
+    show eri ar right
+  File "C:\Users\Greshnick\Desktop\renpy-8.2.0-sdk\renpy\ast.py", line 1113, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\Greshnick\Desktop\renpy-8.2.0-sdk\renpy\ast.py", line 1076, in show_imspec
+    renpy.config.show(name,
+  File "C:\Users\Greshnick\Desktop\renpy-8.2.0-sdk\renpy\exports.py", line 739, in show
+    if not base.find_target() and renpy.config.missing_show:
+  File "C:\Users\Greshnick\Desktop\renpy-8.2.0-sdk\renpy\display\image.py", line 421, in find_target
+    self.target = target._duplicate(a)
+  File "C:\Users\Greshnick\Desktop\renpy-8.2.0-sdk\renpy\display\displayable.py", line 246, in _duplicate
+    args.extraneous()
+  File "C:\Users\Greshnick\Desktop\renpy-8.2.0-sdk\renpy\display\displayable.py", line 109, in extraneous
+    raise Exception("Image '{}' does not accept attributes '{}'.".format(
+Exception: Image 'eri' does not accept attributes 'ar right'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.2.0.24012702
 VisualNovelRenPy 1.0
-Wed Feb 14 11:13:05 2024
+Sat Feb 17 04:41:01 2024

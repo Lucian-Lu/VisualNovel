@@ -32,7 +32,8 @@ image forest = "bg/forest.jpg"
 image camp = "bg/camp.jpg"
 image black = "bg/black.png"
 image sunrise_forest = "bg/sunrise_forest.jpg"
-
+image village = "bg/village.jpg"
+image house_inside = "bg/house_inside.jpg"
 
 
 
@@ -587,7 +588,7 @@ label second_act:
         hanji "So, we need to go to that hut and either kill this person, but then the fungal infection will not leave the village and we will not be able to save the priest."
         hanji "Or we will agree with this person so that he gets rid of this infection and gives us the priest. One problem remains. I don't know what we can offer him in return."
         hanji "Anyone have any ideas?"
-        show eri ar right
+        show eri at right
         with dissolve
         eri "I'm not sure, but maybe he can be convinced, because when he came the second time, when the village was overrun by mushrooms, he was disappointed with it."
         eri "Perhaps he himself does not like what is happening or it is not his fault. I think we need to talk first and find out what he needs."
@@ -640,8 +641,64 @@ label second_act:
     #end of second act
     return
 
+
+
+
+
+
+
 label third_act:
+    if girl:
+
+    else:
+        #bad ending
+        scene village
+        main_char "When we entered the village, no one was visible. Only when we started looking into the windows did we understand why the residents were not visible on the street."
+        main_char "We were only able to find their bodies. They were all covered with red mushrooms."
+        main_char "Some of them were completely covered with them, which was not immediately clear whether it was a person lying or simply mushrooms growing from the ground."
+        show hanji at left
+        with dissolve
+        hanji "Apparently, no one is left alive. A terrible incident. Nobody sees the priest?"
+        stor "No, I only found one of the healers. Maybe..."
+        main_char "I stood over the body in white clothes, similar to the clothes of doctors, but I was not sure that it was her. All clothes were covered with dirt and blood mixed with mushroom juice."
+        main_char "Hanji came up to me and examined the body."
+        hanji "Yes, it's a healer, most likely a girl, but I'm not sure."
+        hanji "You need to find a priest, inspect the houses."
+        hide hanji
+        with dissolve
+        main_char "We began to examine the houses near the entrance to the village, but each one had a roughly similar appearance. Either a body lying on the floor, or a body lying on the bed."
+        scene house_inside
+        main_char "In one of the last houses, Arisius came up to me and showed me a note on crumpled dirty paper."
+        show letter at center
+        with dissolve
+        letter "I, a priest of the goddess Ayun, the goddess of law, consider what is happening in this village to be unfair."
+        letter "People shouldn’t die in such agony, it hurts me to watch how one by one they go to the next world, and I can’t do anything about it."
+        letter "If anyone finds this note, then most likely I will already be dead. I was one of three survivors in this village. Today I am going to end their suffering, and after that I am going to go to my goddess."
+        letter "When someone finds this note, quickly run away from this village and look for the priests of the goddess Talona, the goddess of diseases and poisons. Although she once served the god of death Baal, only the priests of this goddess can help in this."
+        hide letter
+        with dissolve
+        show arisius at left
+        with dissolve
+        arisius "Let's go to the second floor."
+        hide arisius
+        with dissolve
+        main_char "We went to the second floor and went into one of the rooms. It has a fun body in a loop."
+        stor "We need to tell Hanji about this and get out of here as soon as possible."
+        show arisius at left
+        with dissolve
+        arisius "You have the letter, that's why you tell me, I don't want to be near Hanji when she finds out about this. Good luck."
+        hide arisius
+        with dissolve
+        scene village
+        main_char "I left this house and went to Hanji and silently handed her a note."
+        show hanji at left
+        with dissolve
+        main_char "It took Hange less than a minute to read the note. Her face changed suddenly and she screamed at the top of her lungs."
+        hanji "Everyone here. We are leaving. No objections. I'll tell you all the information on the way to the city."
+        hide hanji
+        with dissolve
 
 
-    main_char "123"
+
+
     return
