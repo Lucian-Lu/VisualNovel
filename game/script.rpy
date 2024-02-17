@@ -697,8 +697,80 @@ label third_act:
         hanji "Everyone here. We are leaving. No objections. I'll tell you all the information on the way to the city."
         hide hanji
         with dissolve
+        scene road
+        main_char "After these words, we very quickly gathered on the main street of the village and moved towards the village."
+        if girl_alive:
+
+        else:
 
 
-
-
+        main_char "I glanced at Hanji a couple of times and it was clear that this situation had completely thrown her off her emotional balance."
+        main_char "I've never seen her so upset. I don't know if it was because the mission went wrong or because of the sacrifices the kingdom suffered."
+        main_char "Almost reaching the gate, Hanji stopped and turned to us."
+        show hanji at left
+        with dissolve
+        hanji "No one should know about what happened in this village. If people find out about this, something irresistible could happen."
+        hanji "Therefore, I ask you not to tell anyone about this. Try not to raise this topic even among yourself, others may hear it and rumors will spread throughout the kingdom."
+        show arisius at right
+        with dissolve
+        arisius "Of course, Hanji, we understand that. Everyone will keep their mouths shut."
+        stor "Yes, we will remain silent about this case, but what should we do about the situation in the village? We can't just leave her like that."
+        stor "If the situation with the village is not resolved, then this disease may spread to nearby villages and soon reach the capital."
+        hanji "We will tell the archmage and the king about all the information we found. I'm sure they'll sort it out."
+        hanji "This is a very important matter for them, especially after the death of the priest. From now on, this mission is no longer our busines"
+        hanji "In fact, I don’t want to remember what I saw in the village. I haven't encountered something like this for a long time."
+        hanji "In any case, we will be given awards, so after the awards, I propose to meet in my office in the evening."
+        hanji "Let us remember the memory of those who died."
+        hide arisius
+        with dissolve
+        show ob at right
+        with dissolve
+        ob "I agree with Hanji, but we need to hurry to the capital to tell about what happened."
+        hide ob
+        with dissolve
+        hide hanji
+        with dissolve
+        scene main_square
+        main_char "About two hours later we stood in the king’s reception room and talked about what had happened in the village."
+        main_char "The king and the archmage were shocked by the events, but after a short time, messengers were poisoned in search of the priests of Talana."
+        main_char "And the next morning about twenty priests were sent to the village with a convoy of hundreds of warriors for protection."
+        main_char "Also, the next day we were given our mission award and also medals for bravery."
+        main_char "Everyone, of course, was glad that they were now recognized adventurers, but at the same time it was clear to us that we did not need this medal after what happened in the village."
+        main_char "This evening we gathered in Hanji's office to honor the memory of the victims."
+        scene cabinet
+        show hanji at left
+        with dissolve
+        hanji "It's finally all together. Sorry for my stinginess in emotions, but that’s how it’s supposed to be. I'm glad everyone survived this mission and returned to the city unharmed."
+        main_char "For the first time in the entire time we were in the group, Hanji hugged us."
+        hanji "Let's drink to the dead. Let our glasses honor their memory."
+        hide hanji
+        with dissolve
+        main_char "We drank a glass of wine, and then another and another. When it was already late at night, conversations began about our first sorties, and we began to recall the most memorable events from our missions."
+        main_char "When morning was approaching, we all began to disperse, almost everyone left. Only Hanji and I were left in the room, collecting mugs and bottles from our get-together."
+        show hanji at left
+        with dissolve
+        hanji "Stor, I'm sorry about that girl. I would have loved to have saved her, but I was scared as hell, so we left her there. Please forgive me."
+        main_char "This is the first time I've seen Hanji cry. It was more like a man's stingy surveillance than a woman's tears."
+        main_char "Hanji quickly calmed down, wiped away her tears and apologized to me again."
+        hanji "Stor, I can handle the rest myself, you can go rest, if there is a new mission, I will notify everyone."
+        stor "Hanji, if you need any help outside of missions, then tell me, I’ll try to help."
+        hanji "Thanks, Stor, I'll keep that in mind."
+        hide hanji
+        with dissolve
+        scene black
+        main_char "After that, I went to the tavern where I had lived for a long time and fell asleep."
+        scene tavern
+        main_char "I woke up around noon and went downstairs for a drink and a snack."
+        show airis2 at left
+        with dissolve
+        airis "Stor, Ob came by and gave you a letter."
+        hide airis2
+        with dissolve
+        main_char "Iris handed me a letter with purple sealing wax."
+        scene black
+        show letter at center
+        with dissolve
+        letter "This morning, the commander of the archmage's special squad, Hanji Zoe, was found hanged in her office. Mushrooms similar to those from the village of Tillanium were found on her body."
+        letter "Her body will be burned tonight outside the city walls. The entire special response team must be notified. This information must remain confidential."
+        main_char "End of story"
     return
