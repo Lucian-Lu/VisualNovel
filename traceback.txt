@@ -1,0 +1,34 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 1000, in script
+    queue sound_effect_delayed(terror_sfx, 2.0)
+  File "renpy/common/000statements.rpy", line 219, in execute_queue_music
+    renpy.music.queue(
+Exception: Audio channel 'sound_effect_delayed' is unknown.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 1000, in script
+    queue sound_effect_delayed(terror_sfx, 2.0)
+  File "C:\University Documents\Lab\TM\renpy-8.2.0-sdk\renpy\ast.py", line 1968, in execute
+    self.call("execute")
+  File "C:\University Documents\Lab\TM\renpy-8.2.0-sdk\renpy\ast.py", line 1950, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\University Documents\Lab\TM\renpy-8.2.0-sdk\renpy\statements.py", line 349, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 219, in execute_queue_music
+    renpy.music.queue(
+  File "C:\University Documents\Lab\TM\renpy-8.2.0-sdk\renpy\audio\music.py", line 207, in queue
+    set_pause(False, channel=channel)
+  File "C:\University Documents\Lab\TM\renpy-8.2.0-sdk\renpy\audio\music.py", line 545, in set_pause
+    c = renpy.audio.audio.get_channel(channel)
+  File "C:\University Documents\Lab\TM\renpy-8.2.0-sdk\renpy\audio\audio.py", line 928, in get_channel
+    raise Exception("Audio channel %r is unknown." % name)
+Exception: Audio channel 'sound_effect_delayed' is unknown.
+
+Windows-10-10.0.19045 AMD64
+Ren'Py 8.2.0.24012702
+VisualNovelRenPy 1.0
+Sun Feb 18 17:13:01 2024
