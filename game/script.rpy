@@ -91,55 +91,58 @@ label start:
 label first_act:
     scene tavern
     play music tavern_ambience volume 0.5 fadein 1 fadeout 1 loop
-    main_char "It was a normal Sunday morning, I had the day off, so I was going to have breakfast and have a glass of beer."
+    main_char "It was a typical Sunday morning. I had the day off, so I was going to have breakfast and a glass of beer."
     stor "Hey Airis, what's for breakfast today?"
-    main_char "A tavern owner named Airis came out from behind the bar. A very hard-working woman, in the 3 months that I have been living in this tavern, I have never seen her sleep or rest, constantly at work. Sometimes I’m even scared for her."
+    main_char "A tavern owner named Airis came out from behind the bar. A very hard-working woman; in the 3 months that I have been living in this tavern, I have never seen her sleep or rest. She's constantly at work."
+    main_char "Sometimes I’m even scared of her."
     show airis2 at left
     with dissolve
     airis "And you don’t seem to know, Stor, we’ve been having the same dish for breakfast for 2 weeks now."
-    stor "Is this crappy stew again? Or maybe you can cook something better for your beloved guest?"
+    stor "Is it the crappy stew again? Maybe you can cook something better for your beloved guest?"
     airis "What makes you think you're my favorite guest? Let's not make things up and order what we have."
     stor "Okay, okay, a plate of stew and a glass of beer."
-    main_char "I put 1 silver and 3 copper coins on the bar counter"
+    main_char "I put 1 silver and 3 copper coins on the bar counter."
     airis "There's more here than needed."
-    stor "I know it's for bothering you with a scoundrel like me."
+    stor "I know, it's for bothering you with a scoundrel like me."
     hide airis2
     with dissolve
-    main_char "I had just sat down at the table to eat beef stew and drink the desired glass of beer, when a low male voice called out to me."
+    main_char "I had just sat down at the table to eat beef stew and drink the alluring glass of beer, when a low male voice called out to me."
     main_char "Half of the table was blocked by the shadow of the plate armor of my colleague named Ob."
-    main_char "He has a bad character, of course, but you can rely on him, he will never abandon his own people, more than once thanks to him we got out of such situations that it’s scary to remember."
+    main_char "He has a bad character, but you can rely on him. He will never abandon his own people - more than once, thanks to him, we managed to get out of situations that are too scary to remember."
     show ob at left
     with dissolve
-    ob "Hey, Scott, you better not start drinking in the morning. A task has appeared."
-    stor "Seriously? We just returned from a mission the day before yesterday, what happened again?"
+    ob "Hey, Stor, you better not start drinking in the morning. We have a new job."
+    stor "Seriously? We just returned from a mission the day before yesterday, what the hell happened?"
     ob "Well, better read it yourself."
-    main_char "O handed me a folded note with purple sealing wax."
-    stor "Wait, is it that serious? \n The last time I saw the king put a seal on orders was about 7 years ago, when his daughter disappeared. \n -I said in a whisper."
+    main_char "Ob handed me a folded note with purple sealing wax."
+    stor "Wait, is it that serious? The last time I saw the king put a seal on orders was 7 years ago, when his daughter disappeared. \n    -I said in a whisper."
     play sound letter_sfx volume 0.8
-    main_char "Having torn the seal, I began to read the order, simultaneously eating the stew with my other hand."
-    main_char "At first it seemed strange to me that the king himself decided to write out an order for some unimportant task, but as I read further, I understood more and more why this happened."
-    main_char "he last line made me spit the soup back into my plate in surprise."
+    main_char "Having torn the seal, I began reading the order, simultaneously eating the stew with my other hand."
+    main_char "At first it seemed strange to me that the king himself decided to write out an order over some petty task, but as I read further, I understood more and more as to why he did this."
+    main_char "The last line caught me by surprise, making me choke and spit the stew back into my plate."
     stor "Wait, what the hell is this? How could this happen?"
-    ob "Do you think I know? I was shocked myself. In general, you understand, you don’t have time to finish eating, so pack your ammunition and let’s go."
+    ob "How do you think I'd know? I was shocked myself. Now that you understand you don’t have time to finish eating, pack your things and let’s go. We can't afford to waste time."
     hide ob
     with dissolve
     show letter
     with dissolve
-    letter "Thirty miles north of Falo, in the village of Tillanium, an extraordinary incident occurred. About a month ago, a messenger arrived from this village with information about an infection that had killed all the livestock. A group of a priest and three healers was sent there, but after 3 weeks there was no news from them."
-    letter "Tonight one of the healers arrived, completely covered in mushrooms, he conveyed information that the infection in the village was more than a simple pestilence of livestock and asked that a detachment of soldiers and several priests be sent there. Having conveyed this information, the doctor soon died."
-    letter "I, King Frederick XIII, delegate this task to the detachment of Commander-in-Chief Hanji. Due date: immediately."
+    letter "Thirty miles north of Falo, in the village of Tillanium, an extraordinary incident occurred. About a month ago, a messenger arrived from this village with information about an infection that had killed all the livestock."
+    letter "A group of a priest and three healers was sent there, but after 3 weeks there was no news from them. Tonight one of the healers arrived, his body entirely covered in mushrooms."
+    letter "He shared alarming news that the infection in the village was far deadlier than a simple livestock pestilence. He strongly recommended that a detachment of soldiers and several priests be sent there. Shortly after delivering the message, the doctor succumbed to the mysterious illness."
+    letter "I, King Frederick XIII, hereby delegate this task to Commander-in-Chief Hanji's detachment. Due date: immediately."
     hide letter
     with dissolve
     scene street
     stop music fadeout 1.0
     play music outside_tavern volume 0.25 fadein 1 fadeout 1 loop
-    main_char "After 10 minutes of getting ready, I was already standing on the street where Ob was waiting for me."
-    stor "I'm ready, we can go. Have the others been notified yet?"
+    main_char "After 10 minutes, I was ready. Ob was sitting in the street, waiting for me."
+    stor "Alright, I'm ready, let's get going. Have the others been notified yet?"
     show ob at left
     with dissolve
-    ob "Yes, I already visited Tia, she went to get Arisius."
+    ob "Yes, I already visited Tia, and she went to get Arisius."
     stor "Great, then, to Hanji?"
-    ob "Not right away, we need to go to one shop and we can go to the commander-in-chief."
+    ob "Not right away, we should probably stop by the shop to stock up for the mission."
+    ob "Then again, we can't afford to waste time, so it's your call."
     hide ob
     with dissolve
     menu:
@@ -147,19 +150,19 @@ label first_act:
             $ antidote = True
             show ob at left
             with dissolve
-            stor "Then, let's hurry up. We need to get this task done quickly."
-            ob "Yes, we just need to buy a couple of potions, it will be done quickly."
+            stor "Then let's hurry to the shop. We need to the Commander-in-Chief as soon as possible."
+            ob "Yes, we only need to buy a couple of potions, it shouldn't take that long."
             hide ob
             with dissolve
-            main_char "It took literally 10 minutes to get to the shop, but due to the incredible July heat, I was already squeezed like lemon."
+            main_char "It only took 10 minutes to reach the shop, yet the incredible July heat had me feeling squeezed like a lemon."
             scene near_potion
             show ob at left
             with dissolve
             stop music fadeout 1.0
             play music city_centre volume 0.5 fadein 1 fadeout 1 loop
-            stor "Oh, it’s so hot today, my brains are melting."
-            ob "Yes, especially in armor, I feel like I’m in a steam room."
-            ob "That's it, we've arrived, will you come with me or wait outside?"
+            stor "It's unbelievably hot today; it feels like my brain is melting."
+            ob "Yeah, especially in this armor, I feel like I’m in a steam room."
+            ob "The shop's right there. Are you coming in or are you going to wait outside?"
             hide ob
             with dissolve
             menu:
@@ -170,52 +173,55 @@ label first_act:
                     show ob at right
                     with dissolve
                     sariel "Good morning, welcome to the alchemy shop \"Tasha's Cauldron\"."
-                    ob "Good morning, we need 3 poison resistance potions, Stor, do you need any potions?"
+                    ob "Good morning, I need 3 poison resistance potions. Stor, do you need anything?"
                     main_char "I felt the pocket in which I usually carry gold, but it was empty."
-                    stor "Oh, apparently I left a bag of coins when I was packing before leaving. Apparently I'm without potions this time."
-                    ob "If you need some potions, then take them, I’ll pay, then you’ll return them."
+                    stor "Oh.. apparently I left my bag of coins when I was packing. Guess I'm going without potions this time."
+                    ob "If you need some potions, then take them. I’ll cover you; you can pay me back later."
                     stor "Thanks, Ob, then I'll take..."
                     menu:
                         "Potion of Healing":
                             $ potion = "Healing"
                         "Potion of Invisibility":
                             $ potion = "Invisibility"
-                    stor "Thanks, Ob, then I'll take Potion of [potion]"
+                    stor "Thanks, Ob, then I'll take a Potion of [potion]."
                     ob "Then that's all we'll take, how much will it cost us?"
                     sariel "So, 3 Potions of poison resistance and a Potion of [potion] will cost 125 gold coins"
-                    ob "Yeah, a little expensive, but what can you do? We don't really have a choice, thank you very much, have a nice day."
-                    sariel "Thanks for purchase, come again. Have a good day."
-                    stor "Have a good day."
+                    ob "Yeah, a little expensive, but what can you do? We don't really have a choice."
+                    main_char "Ob reaches for his pouch, grabs the gold coins, and hands them to saleswoman."
+                    ob "Thank you very much, have a nice day."
+                    sariel "Thanks for purchase, come again."
                     hide ob
                     with dissolve
                     hide sariel
                     with dissolve
                     scene near_potion
-                    stor "Hey, Ob, when did you become so kind? He paid for me and even said thank you to the saleswoman."
+                    stor "Hey, Ob, when did you become so empathic? You paid for me and even thanked the saleswoman."
                     stor "Did something happen to you? Be honest, I'll help."
-                    ob "Very funny, let's go to Hanji already. Hold your potion."
+                    show ob at left
+                    with dissolve
+                    ob "Very funny... Let's go to Hanji already. Hold your potion."
                 "Stay outside.":
-                    ob "Okay, then I'll be quick."
-                    main_char "Ob went into the store, and I stayed near the shop."
+                    ob "Okay then, I'll be quick."
+                    main_char "Ob went into the store, and I stayed outside."
                     show reivi at left
                     with dissolve
                     reivi "Hey Stor!"
-                    main_char "The large figure of the half-orc Reivi appeared in front of me. You can't tell from him, but he is an extremely gifted student at the magic academy in Falo."
-                    main_char "Reivi is studying to be a battle mage and is doing extremely well. I was in the same group with him on a combat mission a couple of times."
-                    main_char "Although it was last year, he had amazing combat and magic skills. I think after a year he's gotten even better at it."
+                    main_char "The large figure of the half-orc Reivi appeared in front of me. Despite his appearance, he's an exceptionally talented student at the magic academy in Falo."
+                    main_char "Reivi is studying to be a battle mage and is doing extremely well. I was in the same group as him on a couple of combat missions."
+                    main_char "Even though it was last year, he had amazing combat and magic abilities. I believe he's only improved further since then."
                     reivi "How are you? Decided to go for a walk on your day off?"
-                    stor "Not really, work related matters."
-                    reivi "You're out of luck, of course, the archmage loads you with work even on Sunday."
+                    stor "Unfortunately not, work related matters."
+                    reivi "You're out of luck, it seems. The archmage loads you with work even on Sunday."
                     reivi "What kind of task is it, if not a secret?"
                     menu:
                         "Tell about the task":
                             $ panic = True
                             main_char "It was clear from Reivi's face that he was frightened by this information, but he was intently trying to hide it."
-                            reivi "Wow, what a horror. I hope you can cope with this infection. I believe in you!"
+                            reivi "Wow, that sounds terrifying. I hope you can deal with this infection. I believe in you!"
                             show ob at right
                             with dissolve
                             ob "Oh, Reivi, hi! What are you doing here?"
-                            reivi "Just taking a walk, nothing like that. I'd better go quickly, I won't disturb you, good luck."
+                            reivi "Just taking a walk, nothing interesting. I better go quickly so I don't disturb you. Good luck with your mission!"
                             hide reivi
                             with dissolve
                             hide ob
@@ -223,64 +229,64 @@ label first_act:
                             show ob at left
                             with dissolve
                             play sound grip_sfx volume 1.0
-                            main_char "As soon as Reivi walked about 20 meters away from us, I felt pain in my arm. Ob grabbed my hand with such force that a bear's paw wouldn't close."
-                            main_char "Even through the closed visor, I felt Ob’s gaze, which literally burned through me."
+                            main_char "As soon as Reivi walked about 20 meters from us, I felt a sharp pain in my arm. Ob grabbed my hand with such force that a bear's paw wouldn't come close to."
+                            main_char "Even with the visor closed, I could feel the intensity of Ob's gaze; it seemed to burn through me."
                             ob "Stor, do you understand what you're doing? This is a secret mission! Now the whole city will know about it."
-                            ob "We're finished when this reaches the king. You do understand that the letters were handed to everyone for a reason?"
-                            ob "The king doesn't want anyone to know about this, but now everyone will know about it. You are a complete idiot."
-                            main_char "After these words, Ob let go of my hand and we walked towards Hanji. He didn't say another word to me the whole way."
+                            ob "We're finished when this reaches the king. You do understand that the letters were personally handed to everyone for a reason?"
+                            ob "The king wanted to keep this as quiet as possible, but now it might as well be public knowledge. You are a complete idiot."
+                            main_char "After muttering those words, Ob let go of my hand and we walked towards Hanji's office. He didn't say another word to me the whole way."
                         "Don't tell about the task":
                             $ panic = False
-                            reivi "I understand that your group has secret missions, I do not insist. In any case, good luck to you."
-                            reivi "When you return, we can go to some tavern to relax and chat over a glass or two of ale."
-                            reivi "I'll go, have a nice day. Come back alive!"
+                            reivi "I understand that your group has secret missions, so I won't insist. In any case, best of luck to you."
+                            reivi "When you return, we can go to a tavern to relax and chat over a glass or two of ale."
+                            reivi "I'll be heading off now. Take care, and make sure to come back alive!"
                             hide reivi
                             with dissolve
-                            main_char "After these words, Reivi walked further down the street, but I managed to notice how he turned around. There was concern in his eyes about this situation."
+                            main_char "After saying those words, Reivi continued down the street, yet I caught the subtle turn of his head. There was a hint of concern in his eyes regarding the situation."
                             show ob at left
                             with dissolve
-                            ob "We can go, I bought everything we need."
-                            stor "Great, let's go to Hanji quickly."
+                            ob "We're good to go - I've got everything we need."
+                            stor "Great, let's go to Hanji's office right away."
                             hide ob
                             with dissolve
         "Don't go to the store":
             $ antidote = False
             show ob at left
             with dissolve
-            ob "I agree, we don't have much time, let's go to Hanji quickly."
+            ob "I agree, we don't have much time. Let's go to Hanji's office quickly."
             hide ob
             with dissolve
     scene corridor
     stop music fadeout 1.0
     play music hanji_office volume 0.5 fadein 1 fadeout 1 loop
-    main_char "After 20 minutes of brisk walking, You and I stood outside Hanji's office."
+    main_char "After 20 minutes of brisk walking, me and Ob arrived outside Hanji's office."
     if panic:
         show ob at left
         with dissolve
-        ob "I won’t tell anyone that Reivi knows about the task, but don’t think that I’m doing this out of kindness."
-        ob "I don't want to jeopardize our mission, so we pretend that you didn't say anything and that I didn't see or hear anything."
+        ob "I won’t tell anyone that Reivi knows about the mission, but don’t think that I’m doing this out of kindness."
+        ob "I don't want to jeopardize our mission, so we'll pretend that you didn't say anything and that I didn't see or hear anything."
         stor "Thank you for your understanding, Ob."
         hide ob
         with dissolve
-    arisius "And you are already here, how good."
+    arisius "Ah, good, you are already here."
     show arisius at left
     with dissolve
-    stor "And you, as always, creep up silently. We are, after all, in the same detachment; we might not be frightened."
-    arisius "Well, I'm sorry, it's not my fault that you are so inattentive."
-    main_char "Of course, you can’t tell from him, but once upon a time Arisius was an absolutely full-fledged person, but after many experiments with his body he became like this."
-    main_char "Some parts of his body can extend, his arms and legs have become much stronger thanks to implants. And in general, he has become much stronger, more mobile and more useful in missions."
-    main_char "This does not take into account the fact that he also has basic magic skills. Thanks to this, he is an indispensable member of our party."
+    stor "And you, as always, creep up silently. We are, after all, in the same detachment; would it kill you to greet us properly?"
+    arisius "Well, I'm sorry, but it's not my fault that you are so inattentive."
+    main_char "Of course, you can't tell by looking at him, but Arisius was once a completely ordinary person. However, after numerous experiments on his body, he ended up like this."
+    main_char "Some parts of his body can extend, and implants have made his arms and legs much stronger. Overall, he has become more powerful, mobile and valuable in missions."
+    main_char "Adding to his skill set, he also possesses basic magic skills, making him an indispensable member of our party."
     tia "Apparently everyone forgot about me."
     show tia at right
     with dissolve
-    stor "Oh, and you're already here. How are you doing? Long time no see."
+    stor "Oh, Tia, you're also here. How are you doing? Long time no see."
     tia "Everything is as usual. I just returned from a trip yesterday."
-    main_char "On our team, Tia is responsible for speed and surprise. She spent years learning to be stealthy and deadly."
-    main_char "She is an elf, so it’s not clear from her how old she is, and we didn’t ask. Somehow there was no need for a word."
+    main_char "In our team, Tia is responsible for speed and surprise. She dedicated years to mastering the arts of stealth and lethality."
+    main_char "Because she's an elf, it's unclear from her appearance as to how old she is, and we never felt the need to ask her. Somehow, it's never been a topic of conversation."
     hide tia
     with dissolve
     show ob at right
-    ob "So, let's come in if everyone is ready."
+    ob "Well, if everyone's ready, let's go in and see Hanji."
     hide ob
     with dissolve
     hide arisius
@@ -288,17 +294,17 @@ label first_act:
     scene cabinet
     show hanji at left
     with dissolve
-    hanji "And you got there quickly. I thought I would have to wait longer."
-    main_char "It seems like I was in this office just a couple of days ago, but every time it feels like the first time."
-    main_char "No matter how beautiful it is here, the feeling is unpleasant. Almost every time I come here, I am told or shown information that I would not like to see."
-    main_char "Same thing this time. If it weren’t for my duty of service, I would never want to go now to understand what happened in that village."
-    main_char "Especially considering the details that were in the letter. I am sure that now there will be more details and they will be even worse than before."
-    hanji "Sit down, now I’ll tell you the plan of action."
-    main_char "Hanji is the most strong-willed woman I've ever met. Every decision she makes on missions and outside of them always turns out to be correct."
-    main_char "In general, Hanji is our commander. No one has ever contradicted her, because they know that she knows what will be better."
-    main_char "I've always admired Hanji. I could never give myself entirely to faith in God."
-    hanji "Basically, the mission is to find out what happened in the village of Tillanium and solve the problem if possible."
-    hanji "Also, one of the points is saving a group of healers and a priest. The priest who was sent to the village is a high-ranking member of the church of the goddess Ayun."
+    hanji "You got here quickly. I thought I would have to wait longer."
+    main_char "Although I was in this office just a couple of days ago, every time it feels like the first time."
+    main_char "No matter how beautiful it is in here, the feeling is unpleasant. Almost every visit brings information I'd rather not hear or see."
+    main_char "It's the same story this time. If it weren't for my duty of service, I would never want to go and find out what happened in that village."
+    main_char "Especially given the contents of the letter. I am sure that what I'm about to hear will be even worse than before."
+    hanji "Sit down, I’ll tell you the plan of action."
+    main_char "Hanji is the most strong-willed woman I've ever met. Every decision she makes, both on missions and outside of them, always proves to be correct."
+    main_char "In general, Hanji is our commander. No one ever dares contradict her, because they're certain that she knows what's better."
+    main_char "I've always admired Hanji. I could never give imagine dedicating myself entirely to faith in God."
+    hanji "Basically, the mission is to find out what happened in the village of Tillanium and, if possible, solve the problem."
+    hanji "Also, one of the key points is saving a group of healers and a priest. The priest who was sent to the village is a high-ranking member of the church of the goddess Ayun."
     hanji "Therefore, the archmage and the king ordered us to save him first."
     hanji "If it turns out that he is dead, it will be a huge scandal."
     hanji "Do you have any questions?"
@@ -314,30 +320,30 @@ label first_act:
     with dissolve
     show tia at right
     with dissolve
-    tia "What could be more important? I spend my time, energy, arrows, and by the way, they are not so cheap."
-    hanji "Tia, be quiet. They'll pay you enough to buy you enough arrows for a few years. I have already said that this is a very important task for the king."
+    tia "What could be more important? I spend my time, energy, and not to mention - arrows - which, by the way, are not that cheap."
+    hanji "Tia, be quiet. They'll pay you enough to stock up on arrows for years. As I have already mentioned, this is a very important task for the king."
     hanji "In addition, if the mission is successful and we manage to save the priest, we will be appointed honored officers of the order."
-    hanji "With this medal you will be able to receive free arrows in any quantity, so don’t worry about it."
-    tia "Then, I have no more questions."
+    hanji "With this medal, you will be able to receive arrows for free in any quantity, so don’t worry about it."
+    tia "Then I have no more questions."
     hide tia
     with dissolve
     show arisius at right
     with dissolve
-    arisius "Any guesses about what happened in the village?"
-    arisius "It seems to me that this is not a simple infection if such a high-ranking priest could not cope with it."
+    arisius "Any guesses as to what happened in the village?"
+    arisius "To me, it doesn't seem like a simple disease, if a high-ranking priest could not deal with it."
     hanji "Yes, you're right. I took a sample of mushrooms from the body of one of the doctors who reached the capital."
     hanji "They look extremely strange. Also, I found remnants of magical effects on the mushrooms."
-    hanji "Either the priest tried to cure this doctor of mushrooms, but he did not succeed, or this means that the mushrooms were created by magic."
+    hanji "Either the priest tried to cure the doctor of these mushrooms, but failed, or the mushrooms were created with magic."
     hide arisius
     with dissolve
     show ob at right
     with dissolve
-    ob "The situation, of course, is not the best. Then we will need magical support."
-    ob "Hanji, Arisius, we rely on you."
+    ob "The situation is, of course, not ideal. It seems like we'll require magical support."
+    ob "Hanji, Arisius, we're counting on you."
     hanji "Yes, of course."
     main_char "Arisius nods."
-    hanji "If there are no more questions, then we can move forward."
-    hanji "I need 10 minutes to get ready. Wait outside for now."
+    hanji "If there are no more questions, then we can proceed with our mission."
+    hanji "Give me a few minutes to get ready. You can wait outside for now."
     hide hanji
     with dissolve
     hide ob
@@ -348,15 +354,15 @@ label first_act:
     main_char "Hanji's office is located in the Heroes' Guild building, so when we went outside we found ourselves in the main square of the city."
     show ob at left
     with dissolve
-    ob "I really don't like this task. Some kind of bad feeling."
+    ob "I have a really bad feeling about this task. Something just doesn't sit right with me."
     show arisius at right
     with dissolve
-    arisius "I agree. It seems that in my head I understand that this is our usual task, but inside everything is screaming that something is wrong."
+    arisius "I agree. In my head, I understand that it's another typical task for us, but everything inside me is screaming that there's something off about this."
     show tia at center
     with dissolve
-    tia "Don't make it scary. Arisius, you yourself said that this is our usual task, which means everything will go as usual."
-    tia "Yes, I was also a little wary that the king himself sent us letters, but it turned out to be because of the priest, so everything is in order."
-    main_char "Although Tia’s words were logical and she tried to calm us down, it was clear from her that she was also nervous."
+    tia "Don't let it get to you. Arisius, you said it yourself that this is like our usual missions, which means everything will be fine."
+    tia "Yes, I was also a little wary because the king himself sent us letters, but it turned out to be because of the priest, so everything is in order."
+    main_char "Although Tia’s words were logical and she intended to calm us down, there was an unmistakable nervousness in her demeanor as well."
     hide ob
     with dissolve
     hide tia
@@ -364,40 +370,40 @@ label first_act:
     hide arisius
     with dissolve
     menu:
-        "Say it's okay":
-            stor "I agree with Tia, everything will go well. The main thing is not to relax and be on your guard."
-            stor "We have already completed similar tasks so many times that we are already capable of any task."
+        "Say it's going to be okay":
+            stor "I agree with Tia, everything will go well. The key is to stay alert and not let our guard down."
+            stor "We have already completed similar tasks so many times that this is going to feel like a breeze."
         "Say you're nervous too":
-            stor "I also have a strange feeling. It looks like when we went out on our first mission."
-            stor "This is probably due to the fact that we have never encountered this before. Hanji is with us this time, so we will listen to her and everything will be fine."
+            stor "I also have a strange feeling. It feels like when we went out on our first mission."
+            stor "It's probably because we've never encountered this before. Hanji is with us this time though, so we will follow her lead and everything will be fine."
             stor "Maybe..."
     show ob at left
     with dissolve
-    ob "Hey, I didn’t tell you about my experiences so that we all start to be afraid now."
+    ob "Hey, I didn’t talk about my experience to make everyone feel uneasy."
     ob "There is nothing scary about this task. We'll just do our job and that's it."
-    ob "We stop being nervous and focus on the task."
+    ob "Let's put aside our nerves and concentrate on the mission."
     show hanji at right
     with dissolve
-    hanji "I'm already ready. What are you talking about?"
+    hanji "I'm ready. What were you talking about?"
     hide ob
     with dissolve
     show arisius at left
     with dissolve
-    arisius "Nothing, Hanji. Can we move out now?"
+    arisius "Nothing important, Hanji. Can we move out now?"
     hanji "If everyone is ready, then yes."
     hide hanji
     with dissolve
     hide arisius
     with dissolve
     main_char "On the way to the city gates, no one said a word."
-    main_char "Apparently, everyone understood that this task was not as simple as it seemed to us."
+    main_char "Apparently, everyone understood that this mission was not as simple as it seemed to be."
     scene gates
     main_char "Having reached the gate, Hanji approached one of the guards and whispered something in his ear."
     show hanji
     with dissolve
     hanji "Guys, follow me here."
-    stor "Hanji, shouldn't we go outside the gate and go to the village?"
-    hanji "Literally 10 minutes and we’ll go to the village, come in."
+    stor "Hanji, shouldn't we go outside the city gates and head to the village?"
+    hanji "It's only going to take 10 minutes, then we’ll head for the village; come in."
     hide hanji
     with dissolve
     scene dungeon
@@ -409,23 +415,23 @@ label first_act:
     hanji "Just don't be scared."
     hide hanji
     with dissolve
-    main_char "Hanji pulled out a set of keys from her pocket and opened the door. From behind the door there was immediately a smell of something bittersweet."
+    main_char "Hanji pulled out a set of keys from her pocket and opened the door. From behind the door, a bittersweet smell made its way throughout the corridor."
     main_char "The smell was so strong that I had to hold my nose to prevent vomiting."
-    main_char "Hanji walked inside and called us to follow her."
+    main_char "Hanji walked inside and called for us to follow her."
     scene dungeon_room
-    main_char "We entered a small room in which there was a jelly table in the center, on which lay the body of a man with a cut stomach and chest."
+    main_char "We entered a small room with a jelly table in the center, on which lay the body of a man whose stomach and chest were cut open."
     show hanji at left
     with dissolve
-    hanji "This is the doctor who reached the capital. After his death, we decided to steam him in order to better understand what exactly happened to him."
-    hanji "All internal organs are covered with mushrooms, but these mushrooms have one peculiarity."
-    hanji "They seem to be afraid of sunlight or light in general, so they only grow under the victim's clothing or where there is no light."
-    hanji "One of these places is the internal organs, which is why the victim died."
-    hanji "I think you understand what will need to be done."
+    hanji "This is the doctor who reached the capital. After his death, we decided to dissect him in order to better understand what exactly happened to him."
+    hanji "All of his internal organs are covered with mushrooms, but these mushrooms have one peculiarity."
+    hanji "They seem to be afraid of sunlight - or light, in general, so they only grow under the victim's clothing or areas devoid of light."
+    hanji "One of those places is the victim's internal organs, which is why he died."
+    hanji "I believe you all understand what will need to be done."
     show arisius at right
     with dissolve
-    arisius "You'll have to use light spells if you have to come into contact with mushrooms."
-    hanji "Yes, absolutely."
-    hanji "That's all I wanted to show you, now you can go to the village."
+    arisius "You'll have to use light spells if come into contact with mushrooms..."
+    hanji "Precisely."
+    hanji "That's all I wanted to show you, now we can head for the village."
     hide arisius
     with dissolve
     hide hanji
