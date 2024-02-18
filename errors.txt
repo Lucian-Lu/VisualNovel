@@ -2,6 +2,7 @@
 errors listed below, and try again.
 
 
+<<<<<<< HEAD
 File "game/script.rpy", line 1081: end of line expected.
     if ending == "g"::
                      ^
@@ -20,3 +21,11 @@ File "game/script.rpy", line 1090: expected statement.
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
 Sun Feb 18 01:21:14 2024
+=======
+File "game/script.rpy", line 1001: expected statement.
+    lambda: renpy.pause(2.0)
+          ^
+
+Ren'Py Version: Ren'Py 8.2.0.24012702
+Sun Feb 18 17:14:17 2024
+>>>>>>> main

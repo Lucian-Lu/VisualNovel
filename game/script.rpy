@@ -43,6 +43,29 @@ image hall = "bg/hall.jpg"
 
 
 
+define tavern_ambience = "audio/tavern_ambience.mp3" 
+define outside_tavern = "audio/outside_tavern.mp3"
+define city_centre = "audio/city_centre.mp3"
+define hanji_office = "audio/hanji_office.mp3"
+define journey_start = "audio/journey_start.mp3"
+define strange_disease = "audio/strange_disease.mp3"
+define dark_woods = "audio/dark_woods.mp3"
+define campfire_stories = "audio/campfire_stories.mp3"
+define major_decision = "audio/major_decision.mp3"
+define enemy_encounter = "audio/enemy_encounter.mp3"
+define final_sendoff = "audio/final_sendoff.mp3"
+define mission_success = "audio/mission_success.mp3"
+define boss_fight = "audio/boss_fight.mp3"
+define mission_failed = "audio/mission_failed.mp3"
+define mission_disaster = "audio/mission_disaster.mp3"
+define tragedy_strikes = "audio/tragedy_strikes.mp3"
+
+
+define letter_sfx = "audio/letter_SFX.mp3"
+define kick_sfx = "audio/kick_SFX.mp3"
+define grip_sfx = "audio/grip_SFX.mp3"
+define terror_sfx = "audio/terror_SFX.mp3"
+
 
 
 
@@ -67,6 +90,7 @@ label start:
 
 label first_act:
     scene tavern
+    play music tavern_ambience volume 0.5 fadein 1 fadeout 1 loop
     main_char "It was a normal Sunday morning, I had the day off, so I was going to have breakfast and have a glass of beer."
     stor "Hey Airis, what's for breakfast today?"
     main_char "A tavern owner named Airis came out from behind the bar. A very hard-working woman, in the 3 months that I have been living in this tavern, I have never seen her sleep or rest, constantly at work. Sometimes I’m even scared for her."
@@ -91,6 +115,7 @@ label first_act:
     ob "Well, better read it yourself."
     main_char "O handed me a folded note with purple sealing wax."
     stor "Wait, is it that serious? \n The last time I saw the king put a seal on orders was about 7 years ago, when his daughter disappeared. \n -I said in a whisper."
+    play sound letter_sfx volume 0.8
     main_char "Having torn the seal, I began to read the order, simultaneously eating the stew with my other hand."
     main_char "At first it seemed strange to me that the king himself decided to write out an order for some unimportant task, but as I read further, I understood more and more why this happened."
     main_char "he last line made me spit the soup back into my plate in surprise."
@@ -106,6 +131,8 @@ label first_act:
     hide letter
     with dissolve
     scene street
+    stop music fadeout 1.0
+    play music outside_tavern volume 0.25 fadein 1 fadeout 1 loop
     main_char "After 10 minutes of getting ready, I was already standing on the street where Ob was waiting for me."
     stor "I'm ready, we can go. Have the others been notified yet?"
     show ob at left
@@ -128,6 +155,8 @@ label first_act:
             scene near_potion
             show ob at left
             with dissolve
+            stop music fadeout 1.0
+            play music city_centre volume 0.5 fadein 1 fadeout 1 loop
             stor "Oh, it’s so hot today, my brains are melting."
             ob "Yes, especially in armor, I feel like I’m in a steam room."
             ob "That's it, we've arrived, will you come with me or wait outside?"
@@ -193,6 +222,7 @@ label first_act:
                             with dissolve
                             show ob at left
                             with dissolve
+                            play sound grip_sfx volume 1.0
                             main_char "As soon as Reivi walked about 20 meters away from us, I felt pain in my arm. Ob grabbed my hand with such force that a bear's paw wouldn't close."
                             main_char "Even through the closed visor, I felt Ob’s gaze, which literally burned through me."
                             ob "Stor, do you understand what you're doing? This is a secret mission! Now the whole city will know about it."
@@ -221,6 +251,8 @@ label first_act:
             hide ob
             with dissolve
     scene corridor
+    stop music fadeout 1.0
+    play music hanji_office volume 0.5 fadein 1 fadeout 1 loop
     main_char "After 20 minutes of brisk walking, You and I stood outside Hanji's office."
     if panic:
         show ob at left
@@ -311,6 +343,8 @@ label first_act:
     hide ob
     with dissolve
     scene main_square
+    stop music fadeout 1.0
+    play music city_centre volume 0.5 fadein 1 fadeout 1 loop
     main_char "Hanji's office is located in the Heroes' Guild building, so when we went outside we found ourselves in the main square of the city."
     show ob at left
     with dissolve
@@ -367,6 +401,8 @@ label first_act:
     hide hanji
     with dissolve
     scene dungeon
+    stop music fadeout 1.0
+    play music strange_disease volume 0.5 fadein 1 fadeout 1 loop
     main_char "We followed Hanji into the dark basement along the city wall and stopped in front of the iron door."
     show hanji at left
     with dissolve
@@ -406,9 +442,13 @@ label first_act:
 
 label second_act:
     scene road
+    stop music fadeout 1.0
+    play music journey_start volume 0.5 fadein 1 fadeout 1 loop
     main_char "The path to the village lay north through large fields of almost ripened wheat and through a small forest."
     main_char "Although this was not the longest outing for our team, the road was still quite long."
     scene forest
+    stop music fadeout 1.0
+    play music dark_woods volume 0.5 fadein 1 fadeout 1 loop
     main_char "When it was already deep night, we were about a mile from the village."
     show arisius at left
     with dissolve
@@ -518,6 +558,8 @@ label second_act:
     hide ob
     with dissolve
     scene camp
+    stop music fadeout 1.0
+    play music campfire_stories volume 0.5 fadein 1 fadeout 1 loop
     main_char "Me, Ob and Arisius began to set up the camp, and Hanji and Tia started the fire at this time and in about half an hour the camp was ready."
     if girl:
         main_char "When we were almost setting up the tent, I noticed that Hanji approached the girl lying on the ground and poured something from a glass flask into her mouth."
@@ -529,6 +571,7 @@ label second_act:
         main_char "Hanji went and leaned towards me."
         hanji "I poured a poison resistance potion into the girl's mouth. He will wake up in about 8 hours, approximately on your watch."
         hanji "Try to find out as much information as possible so that it does not become a burden for us."
+        play sound grip_sfx volume 1.0
         main_char "Hanji’s hand fell on my shoulder and at the same time I felt severe pain near my collarbone. Her grip was so strong that I could feel her moving her fingers even through the leather armor."
         hanji "If you disobey my order again, your family will never see you again. They will only receive a letter from the king about how bravely you fought. All clear?"
     stor "Yes, Commander Hanji, everything is clear."
@@ -542,6 +585,7 @@ label second_act:
     scene black
     main_char "Sleep, of course, was not going well, but after about half an hour I managed to fall asleep."
     if girl:
+        play sound kick_sfx volume 0.8
         main_char "I felt something hit my stomach with force."
         hanji "Hey, good-natured fool, wake up. It's your turn to go out on patrol."
         show hanji at left
@@ -592,6 +636,8 @@ label second_act:
         with dissolve
         main_char "When the sun had already fully risen in the sky, everyone woke up and I told them about the history of Eri and what happened in the village."
         scene sunrise_forest
+        stop music fadeout 1.0
+        play music major_decision volume 0.5 fadein 1 fadeout 1 loop
         main_char "We packed up the camp and began to decide what to do with this situation."
         show hanji at left
         with dissolve
@@ -640,6 +686,8 @@ label second_act:
         main_char ""
         show hanji at left
         with dissolve
+        stop music fadeout 1.0
+        play music major_decision volume 0.5 fadein 1 fadeout 1 loop
         hanji "So now we need to find out what's going on in the village. Be as attentive and careful as possible."
         hanji "If you see a possible threat or enemy, immediately inform others and maintain the usual grouping."
         hanji "All clear?"
@@ -673,6 +721,8 @@ label third_act:
         hide hanji
         with dissolve
         scene mushroom_hut
+        stop music fadeout 1.0
+        play music enemy_encounter volume 0.5 fadein 1 fadeout 1 loop
         main_char "We walked about 500 feet east and saw a small wooden hut covered in mushrooms."
         main_char "As we looked around the hut, a tall man came out of the hut covered in red glowing mushrooms."
         show mushroom at center
@@ -794,6 +844,8 @@ label good_ending:
     hide mushroom
     with dissolve
     scene canyon
+    stop music fadeout 1.0
+    play music final_sendoff volume 0.7 fadein 1 fadeout 1 loop
     main_char "The path to the rift lay through a dense forest, in which it was not very easy to walk; by noon we reached the place."
     main_char "Approaching the edge of the cliff, the mushroom man, without saying a word, looked back at us and jumped down."
     show hanji at left
@@ -830,6 +882,8 @@ label good_ending:
 
 label bad_ending:
     scene village
+    stop music fadeout 1.0
+    play music mission_disaster volume 0.5 fadein 1 fadeout 1 loop
     main_char "When we entered the village, no one was visible. Only when we started looking into the windows did we understand why the residents were not visible on the street."
     main_char "We were only able to find their bodies. They were all covered with red mushrooms."
     main_char "Some of them were completely covered with them, which was not immediately clear whether it was a person lying or simply mushrooms growing from the ground."
@@ -910,6 +964,8 @@ label bad_ending:
     main_char "Everyone, of course, was glad that they were now recognized adventurers, but at the same time it was clear to us that we did not need this medal after what happened in the village."
     main_char "This evening we gathered in Hanji's office to honor the memory of the victims."
     scene cabinet
+    stop music fadeout 1.0
+    play music tragedy_strikes volume 0.5 fadein 1 fadeout 1 loop
     show hanji at left
     with dissolve
     hanji "It's finally all together. Sorry for my stinginess in emotions, but that’s how it’s supposed to be. I'm glad everyone survived this mission and returned to the city unharmed."
@@ -942,6 +998,7 @@ label bad_ending:
     scene black
     show letter at center
     with dissolve
+    play sound terror_sfx volume 1
     letter "This morning, the commander of the archmage's special squad, Hanji Zoe, was found hanged in her office. Mushrooms similar to those from the village of Tillanium were found on her body."
     letter "Her body will be burned tonight outside the city walls. The entire special response team must be notified. This information must remain confidential."
     $ ending = "b"
@@ -976,6 +1033,8 @@ label mid_ending:
 label mid_ending_2:
     if priest:
         scene road
+        stop music fadeout 1.0
+        play music mission_success volume 0.5 fadein 1 fadeout 1 loop
         main_char "We reached the capital as quickly as possible, carrying the priest in our arms."
         scene dungeon_room
         main_char "We went down to the basement again, where Hanji showed us the body of one of the doctors. There was nothing in the room where the body had previously lain."
@@ -1018,6 +1077,8 @@ label mid_ending_2:
         jump end
     else:
         scene road
+        stop music fadeout 1.0
+        play music mission_failed volume 0.5 fadein 1 fadeout 1 loop
         main_char "After these words, we very quickly gathered on the main street of the village and moved towards the village."
         main_char "I glanced at Hanji a couple of times and it was clear that this situation had completely thrown her off her emotional balance."
         main_char "I've never seen her so upset. I don't know if it was because the mission went wrong or because of the sacrifices the kingdom suffered."
