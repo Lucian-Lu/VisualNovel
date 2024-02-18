@@ -2,30 +2,17 @@
 errors listed below, and try again.
 
 
-<<<<<<< HEAD
-File "game/script.rpy", line 1081: end of line expected.
-    if ending == "g"::
-                     ^
-
-File "game/script.rpy", line 1084: expected statement.
-    elif ending == "mg":
+File "game/options.rpy", line 65: expected statement.
+    <<<<<<< HEAD
                 ^
 
-File "game/script.rpy", line 1087: expected statement.
-    elif ending == "mb":
-                ^
-
-File "game/script.rpy", line 1090: expected statement.
-    elif ending == "b":
-                ^
-
-Ren'Py Version: Ren'Py 8.2.0.24012702
-Sun Feb 18 01:21:14 2024
-=======
-File "game/script.rpy", line 1001: expected statement.
-    lambda: renpy.pause(2.0)
+File "game/options.rpy", line 67: expected statement.
+    =======
           ^
 
+File "game/options.rpy", line 69: expected statement.
+    >>>>>>> main
+                ^
+
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Sun Feb 18 17:14:17 2024
->>>>>>> main
+Sun Feb 18 19:36:43 2024
